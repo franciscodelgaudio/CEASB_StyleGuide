@@ -12,12 +12,59 @@
 *   A convenção de nomenclatura não é afetada por modificadores como const, static, readonly, etc.
 *   Para a escrita de palavras, qualquer coisa sem espaços internos, incluindo siglas, é considerada uma "palavra". Por exemplo, `MyRpc` em vez de `MyRPC`.
 *   Nomes de interfaces começam com `I`, por exemplo, `IInterface`.
+*   Escolha nomes de identificador facilmente legíveis.
+*   Favoreça a legibilidade em vez da brevidade.
+*   Não use sublinhados, hifens ou outros caracteres não alfanuméricos.
+*   Não use abreviações ou contrações como parte de nomes de identificador.
 
 #### Arquivos
 
 *   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
 *   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
 *   Em geral, prefira uma classe principal por arquivo.
+
+#### Classes, Structs, Interfaces e Genéricos
+
+*   NOMEIE classes e structs com substantivos ou frases nominais, usando PascalCasing.
+*   NOMEIE interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
+*   CONSIDERE encerrar o nome de classes derivadas com o nome da classe base.
+*   FAÇA nomeações de interface de prefixo com a letra I, para indicar que o tipo é uma interface.
+*   VERIFIQUE se os nomes diferem-se apenas pelo prefixo "I" no nome da interface quando você estiver definindo um par classe-interface em que a classe é uma implementação padrão da interface.
+
+#### Métodos
+
+*   NOMEIE os métodos que sejam verbos ou frases verbais.
+
+#### Propriedades
+
+*   NOMEIE as propriedades usando um substantivo, uma frase nominal ou um adjetivo.
+*   NÃO tenha propriedades que correspondam ao nome dos métodos "Get", como no exemplo a seguir:
+*   NOMEIE as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
+*   NOMEIE as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has", mas somente quando isso adicionar valor.
+*   CONSIDERE nomear uma propriedade com o mesmo nome de seu tipo.
+
+#### Eventos
+
+*   NOMEIE os eventos com um verbo ou uma frase verbal.
+*   NOMEIE os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
+*   NOMEIE os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
+*   USE dois parâmetros nomeados como sender e e nos manipuladores de eventos.
+*   NOMEIE as classes de argumento de evento com o sufixo "EventArgs".
+
+#### Campos
+
+*   USE PascalCasing nos nomes de campos.
+*   ✔️ NOMEIE os campos usando um substantivo, uma frase nominal ou um adjetivo.
+*   ❌NÃO use um prefixo para nomes de campos.
+
+#### Genéricos e Enumerações
+
+*   NOMEIE parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
+*   CONSIDERE usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra.
+*   USE nomes de prefixo descritivos de parâmetro de tipo com T.
+*   CONSIDERE indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
+*   USE um nome de tipo singular para uma enumeração, a menos que seus valores sejam campos de bits.
+*   NÃO use um sufixo "Enum" em nomes de tipo enumerado.
 
 ### Organização
 
@@ -119,6 +166,44 @@ public void ProcessOrder(Order order)
     Console.WriteLine("Order processed.");
 }
 ```
+### Classe vs Struct
+
+*   CONSIDERE definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
+*   EVITE definir um struct, a menos que o tipo tenha todas as características a seguir:
+    * Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
+    * Tem um tamanho de instância inferior a 16 bytes.
+    * É imutável.
+    * Não precisará ser encaixotado com frequência.
+
+#### Design de Struct
+
+*   NÃO forneça um construtor sem parâmetros para um struct.
+*   ❌ NÃO defina tipos mutáveis de valor.
+*   ✔️ VERIFIQUE se um estado em que todos os dados da instância estão definidos como zero, falsos ou nulos (conforme apropriado) é válido.
+*   ✔️ Implemente IEquatable<T> nos tipos de valor.
+*   ❌ NÃO estenda ValueType explicitamente. Na verdade, a maioria das linguagens impede isso.
+ 
+### Interface
+
+*   DEFINA uma interface se você precisar que alguma API comum tenha suporte de um conjunto de tipos que incluem tipos de valor.
+*   ✔️ CONSIDERE definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
+*   ❌ EVITE o uso de interfaces de marcador (interfaces sem membros).
+*   Se você precisar marcar uma classe como tendo uma característica específica (marcador), no geral, use um atributo personalizado em vez de uma interface.
+*   ✔️ FORNEÇA pelo menos um tipo que é uma implementação de uma interface.
+*   Fazer isso ajuda a validar o design da interface. Por exemplo, List<T> é uma implementação da interface IList<T>.
+*   ✔️ FORNEÇA pelo menos uma API que consome cada interface que você define (um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface).
+*   NÃO adicione membros a uma interface que tenha sido enviada anteriormente.
+
+### Enumeração
+
+*   USE uma enumeração para parâmetros, propriedades e valores retornados fortemente tipados que representam conjuntos de valores.
+*   ✔️ PREFIRA usar uma enumeração, em vez de constantes estáticas.
+*   ❌ NÃO use uma enumeração para conjuntos abertos (como a versão do sistema operacional, nomes de amigos etc.).
+*   ❌ NÃO forneça valores de enumeração reservados destinados a uso futuro.
+*   ❌ EVITE expor publicamente enumerações com apenas um valor.
+*   ❌ NÃO inclua valores sentinelas em enumerações.
+*   ✔️ FORNEÇA um valor de zero em enumerações simples.
+
 ### ref e out
 
 *   Use out para retornos que não são também entradas.
