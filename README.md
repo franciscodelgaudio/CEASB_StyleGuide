@@ -54,8 +54,8 @@
 #### Campos
 
 *   USE PascalCasing nos nomes de campos.
-*   ✔️ NOMEIE os campos usando um substantivo, uma frase nominal ou um adjetivo.
-*   ❌NÃO use um prefixo para nomes de campos.
+*   NOMEIE os campos usando um substantivo, uma frase nominal ou um adjetivo.
+*   NÃO use um prefixo para nomes de campos.
 
 #### Genéricos e Enumerações
 
@@ -96,7 +96,7 @@
 *   Não adicione um espaço após o parêntese e os argumentos de função, por exemplo, CollectItem(myObject, 0, 1);
 *   As quebras de linha devem ocorrer antes dos operadores binários, se necessário.
 
-## Diretrizes de Codificação em C#
+## Diretrizes de Tipo
 
 ### Constantes
 
@@ -178,31 +178,40 @@ public void ProcessOrder(Order order)
 #### Design de Struct
 
 *   NÃO forneça um construtor sem parâmetros para um struct.
-*   ❌ NÃO defina tipos mutáveis de valor.
-*   ✔️ VERIFIQUE se um estado em que todos os dados da instância estão definidos como zero, falsos ou nulos (conforme apropriado) é válido.
-*   ✔️ Implemente IEquatable<T> nos tipos de valor.
-*   ❌ NÃO estenda ValueType explicitamente. Na verdade, a maioria das linguagens impede isso.
+*   NÃO defina tipos mutáveis de valor.
+*   VERIFIQUE se um estado em que todos os dados da instância estão definidos como zero, falsos ou nulos (conforme apropriado) é válido.
+*   Implemente IEquatable<T> nos tipos de valor.
+*   NÃO estenda ValueType explicitamente. Na verdade, a maioria das linguagens impede isso.
  
 ### Interface
 
 *   DEFINA uma interface se você precisar que alguma API comum tenha suporte de um conjunto de tipos que incluem tipos de valor.
-*   ✔️ CONSIDERE definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
-*   ❌ EVITE o uso de interfaces de marcador (interfaces sem membros).
+*   CONSIDERE definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
+*   EVITE o uso de interfaces de marcador (interfaces sem membros).
 *   Se você precisar marcar uma classe como tendo uma característica específica (marcador), no geral, use um atributo personalizado em vez de uma interface.
-*   ✔️ FORNEÇA pelo menos um tipo que é uma implementação de uma interface.
+*   FORNEÇA pelo menos um tipo que é uma implementação de uma interface.
 *   Fazer isso ajuda a validar o design da interface. Por exemplo, List<T> é uma implementação da interface IList<T>.
-*   ✔️ FORNEÇA pelo menos uma API que consome cada interface que você define (um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface).
-*   NÃO adicione membros a uma interface que tenha sido enviada anteriormente.
+*   Forneça pelo menos uma API que consome cada interface que você define (um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface).
+*   Não adicione membros a uma interface que tenha sido enviada anteriormente.
 
 ### Enumeração
 
 *   USE uma enumeração para parâmetros, propriedades e valores retornados fortemente tipados que representam conjuntos de valores.
-*   ✔️ PREFIRA usar uma enumeração, em vez de constantes estáticas.
-*   ❌ NÃO use uma enumeração para conjuntos abertos (como a versão do sistema operacional, nomes de amigos etc.).
-*   ❌ NÃO forneça valores de enumeração reservados destinados a uso futuro.
-*   ❌ EVITE expor publicamente enumerações com apenas um valor.
-*   ❌ NÃO inclua valores sentinelas em enumerações.
-*   ✔️ FORNEÇA um valor de zero em enumerações simples.
+*   PREFIRA usar uma enumeração, em vez de constantes estáticas.
+*   NÃO use uma enumeração para conjuntos abertos (como a versão do sistema operacional, nomes de amigos etc.).
+*   NÃO forneça valores de enumeração reservados destinados a uso futuro.
+*   EVITE expor publicamente enumerações com apenas um valor.
+*   NÃO inclua valores sentinelas em enumerações.
+*   FORNEÇA um valor de zero em enumerações simples.
+
+### Tipos Aninhados
+
+*   USE tipos aninhados quando a relação entre o tipo aninhado e seu tipo externo for tal que a semântica de acessibilidade de membros seja desejável.
+*   NÃO use tipos aninhados públicos como um constructo de agrupamento lógico; use namespaces para isso.
+*   EVITE tipos aninhados expostos publicamente. A única exceção a isso é se variáveis do tipo aninhado precisarem ser declaradas apenas em cenários raros, como subclasse ou outros cenários avançados de personalização.
+*   NÃO use tipos aninhados se o tipo provavelmente for referenciado fora do tipo que o contém.
+*   NÃO use tipos aninhados se eles precisarem ser instanciados pelo código do cliente. Se um tipo tiver um construtor público, ele provavelmente não deve ser aninhado.
+*   NÃO defina um tipo aninhado como membro de uma interface. Há muitas linguagens que não dão suporte a esse constructo.
 
 ### ref e out
 
@@ -300,3 +309,19 @@ options.PrecisionDecimals = 7;
 options.UseCache = CacheUsage.DontUseCache;
 DecimalNumber product = CalculateProduct(values, options, completionDelegate: null);
 ```
+## Diretrizes de Métodos em C#
+
+### Sobrecarga de Métodos
+
+*   TENTE usar nomes de parâmetro descritivos para indicar o padrão usado por sobrecargas mais curtas.
+
+*   EVITE variar arbitrariamente nomes de parâmetro em sobrecargas. Se um parâmetro em uma sobrecarga representar a mesma entrada que um parâmetro em outra sobrecarga, os parâmetros deverão ter o mesmo nome.
+
+*   EVITE ser inconsistente na ordenação dos parâmetros em membros sobrecarregados. Parâmetros com o mesmo nome devem aparecer na mesma posição em todas as sobrecargas.
+
+*   FAÇA apenas a sobrecarga mais longa virtual (se a extensibilidade for necessária). Sobrecargas mais curtas devem simplesmente chamar uma sobrecarga mais longa.
+
+*   NÃO use os modificadores ref ou out para sobrecarregar membros.
+*   NÃO faça sobrecargas com parâmetros na mesma posição e tipos semelhantes ainda que com semântica diferente.
+*   PERMITA que null seja passado para argumentos opcionais.
+*   USE sobrecarga de membro em vez de definir membros com argumentos padrão.
