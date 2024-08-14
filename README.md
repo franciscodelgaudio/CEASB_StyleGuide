@@ -314,14 +314,61 @@ DecimalNumber product = CalculateProduct(values, options, completionDelegate: nu
 ### Sobrecarga de Métodos
 
 *   TENTE usar nomes de parâmetro descritivos para indicar o padrão usado por sobrecargas mais curtas.
-
 *   EVITE variar arbitrariamente nomes de parâmetro em sobrecargas. Se um parâmetro em uma sobrecarga representar a mesma entrada que um parâmetro em outra sobrecarga, os parâmetros deverão ter o mesmo nome.
-
 *   EVITE ser inconsistente na ordenação dos parâmetros em membros sobrecarregados. Parâmetros com o mesmo nome devem aparecer na mesma posição em todas as sobrecargas.
-
 *   FAÇA apenas a sobrecarga mais longa virtual (se a extensibilidade for necessária). Sobrecargas mais curtas devem simplesmente chamar uma sobrecarga mais longa.
-
 *   NÃO use os modificadores ref ou out para sobrecarregar membros.
 *   NÃO faça sobrecargas com parâmetros na mesma posição e tipos semelhantes ainda que com semântica diferente.
 *   PERMITA que null seja passado para argumentos opcionais.
 *   USE sobrecarga de membro em vez de definir membros com argumentos padrão.
+
+### Propriedades
+
+*   ✔️ CRIE propriedades somente get se o chamador não puder alterar o valor da propriedade.
+*   NÃO forneça propriedades somente set ou propriedades com um setter que tenha acessibilidade mais ampla do que o getter.
+*   ✔️ FORNEÇA valores padrão concretos para todas as propriedades, garantindo que os padrões não resultem em uma brecha de segurança ou código extremamente ineficiente.
+*   ✔️ PERMITA que as propriedades sejam definidas em qualquer ordem, mesmo que isso resulte em um estado temporário inválido do objeto.
+*   ✔️ PRESERVE o valor anterior se um setter de propriedade gerar uma exceção.
+*   ❌ EVITE gerar exceções de getters de propriedade.
+
+#### Propriedades Indexadas
+
+*   ✔️ CONSIDERE usar indexadores para dar acesso aos dados armazenados em uma matriz interna.
+*   ✔️ CONSIDERE fornecer indexadores em tipos que representam coleções de itens.
+*   ❌ EVITE usar propriedades indexadas com mais de um parâmetro.
+*   ❌ EVITE indexadores com tipos de parâmetro que não System.Int32, System.Int64, System.String, System.Object ou uma enumeração.
+*   ✔️ Use o nome Item para propriedades indexadas, a menos que haja um nome obviamente melhor (por exemplo, confira a propriedade Chars[] em System.String).
+*   ❌ NÃO forneça um indexador e métodos semanticamente equivalentes.
+*   ❌ NÃO forneça mais de uma família de indexadores sobrecarregados em um tipo.
+*   ❌ NÃO use propriedades indexadas não padrão.
+
+### Construtores
+
+*   ✔️ CONSIDERE fornecer construtores simples, idealmente padrão.
+*   ✔️ CONSIDERE o uso de um método de fábrica estático em vez de um construtor se a semântica da operação desejada não for mapeada diretamente para a construção de uma nova instância ou se seguir as diretrizes de design do construtor não parecer natural.
+*   ✔️ USE parâmetros de construtor como atalhos para definir as propriedades principais.
+*   ✔️ USE o mesmo nome para parâmetros de construtor e uma propriedade se os parâmetros do construtor forem usados para simplesmente definir a propriedade.
+*   ✔️ FAÇA um trabalho mínimo no construtor.
+*   ✔️ GERE exceções de construtores de instância, se apropriado.
+*   ✔️ DECLARE explicitamente o construtor público sem parâmetros em classes, se esse construtor for necessário.
+*   ❌ EVITE definir explicitamente construtores sem parâmetros em structs.
+*   ❌ EVITE chamar membros virtuais em um objeto dentro de seu construtor.
+
+### Eventos
+
+*   ✔️ Use o termo "gerar” para eventos em vez de "lançar" ou "disparar".
+*   ✔️ Use System.EventHandler<TEventArgs> em vez de criar manualmente novos representantes para serem usados como manipuladores de eventos.
+*   ✔️ CONSIDERE usar uma subclasse de EventArgs como argumento do evento, a menos que você tenha certeza absoluta de que o evento nunca precisará carregar nenhum dado para o método de manipulação de eventos. Nesse caso, use diretamente o tipo EventArgs.
+*   ✔️ Use um método virtual protegido para gerar cada evento. Isso é aplicável somente a eventos não estáticos em classes não seladas, não a structs, classes seladas ou eventos estáticos.
+*   ✔️ Defina um parâmetro para o método protegido que gera um evento.
+*   ❌ Não transmita nulo como remetente ao gerar um evento não estático.
+*   ✔️ Transmita nulo como remetente ao gerar um evento estático.
+*   ❌ Não transmita nulo como o parâmetro de dados do evento ao gerar um evento.
+*   ✔️ Considere gerar eventos que o usuário final possa cancelar. Isso só se aplica a pré-eventos.
+
+#### Eventos Personalizados
+
+*   ✔️ Use um tipo de retorno nulo para manipuladores de eventos.
+*   ✔️ Use object como o tipo do primeiro parâmetro do manipulador de eventos e chame-o de sender.
+*   ✔️ Use System.EventArgs ou a respectiva subclasse como o tipo do segundo parâmetro do manipulador de eventos e chame-o de e.
+*   ❌ Não tenha mais de dois parâmetros em manipuladores de eventos.
