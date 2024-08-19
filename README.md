@@ -207,22 +207,29 @@ Exemplo:
     }
 ```
 
-### Tipos Aninhados
+### =ref e out
 
-*   Use tipos aninhados quando a relação entre o tipo aninhado e seu tipo externo for tal que a semântica de acessibilidade de membros seja desejável.
-*   Não use tipos aninhados públicos como um constructo de agrupamento lógico; use namespaces para isso.
-*   Evite tipos aninhados expostos publicamente. A única exceção a isso é se variáveis do tipo aninhado precisarem ser declaradas apenas em cenários raros, como subclasse ou outros cenários avançados de personalização.
-*   Não use tipos aninhados se o tipo provavelmente for referenciado fora do tipo que o contém.
-*   Não use tipos aninhados se eles precisarem ser instanciados pelo código do cliente. Se um tipo tiver um construtor público, ele provavelmente não deve ser aninhado.
-*   Não defina um tipo aninhado como membro de uma interface. Há muitas linguagens que não dão suporte a esse constructo.
+*   =Use out para retornos que não são também entradas.
+```c#
+    // O parâmetro out é usado quando você precisa retornar múltiplos valores de um método,
+    // mas esses valores não são usados como entradas.
+    public void GetCoordinates(out int x, out int y)
+    {
+        x = 10;
+        y = 20;
+    }
+    
+    public void ExampleUsage()
+    {
+        int x, y;
+        GetCoordinates(out x, out y);
+        Console.WriteLine($"Coordinates: ({x}, {y})");
+    }
+```
 
-### ref e out
 
-*   Use out para retornos que não são também entradas.
-*   Coloque os parâmetros out após todos os outros parâmetros na definição do método.
-*   ref deve ser usado raramente, quando é necessário modificar uma entrada.
-*   Não use ref como uma otimização para passar structs.
-*   Não use ref para passar um contêiner modificável para um método. ref só é necessário quando o contêiner fornecido precisa ser substituído por uma instância de contêiner completamente diferente.
+*   =Coloque os parâmetros out após todos os outros parâmetros na definição do método.
+*   =ref deve ser usado raramente, quando é necessário modificar uma entrada.
 
 ### Array vs List
 
