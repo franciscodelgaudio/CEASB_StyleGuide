@@ -61,8 +61,11 @@
 *   =Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
 *   =Nomeie as classes de argumento de evento com o sufixo "EventArgs".
 ```c#
-    public delegate void ClosingEventHandler(object sender, EventArgs e);
-    public delegate void ClosedEventHandler(object sender, EventArgs e);
+    public ClosingEventArgs() => {};
+    public ClosedEventArgs() => {};
+
+    public delegate void ClosingEventHandler(object sender, ClosingEventArgs e);
+    public delegate void ClosedEventHandler(object sender, ClosedEventArgs e);
     
     public event ClosingEventHandler Closing;
     public event ClosedEventHandler Closed;
@@ -70,32 +73,32 @@
 
 #### Genéricos e Enumerações
 
-*   Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
+*   =Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
 *   Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra.
 *   Use nomes de prefixo descritivos de parâmetro de tipo com T.
 *   Considere indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
 *   Use um nome de tipo singular para uma enumeração, a menos que seus valores sejam campos de bits.
-*   Não use um sufixo "Enum" em nomes de tipo enumerado.
+*   =Não use um sufixo "Enum" em nomes de tipo enumerado.
 
-### Organização
+### =Organização
 
-*   Modificadores ocorrem na seguinte ordem: `public protected internal private
+*   =Modificadores ocorrem na seguinte ordem: `public protected internal private
     new abstract virtual override sealed static readonly extern unsafe volatile
     async`.
-*   Ordem dos membros da classe:
-    *   Agrupe os membros da classe na seguinte ordem:
+*   =Ordem dos membros da classe:
+    *   =Agrupe os membros da classe na seguinte ordem:
         *   Classes aninhadas, enums, delegates e eventos.
         *   Campos static, cons e readonly.
         *   Campos e propriedades.
         *   Construtores e finalizadores.
         *   Métodos.
-    *   Dentro de cada grupo, os elementos devem estar na seguinte ordem:
+    *   =Dentro de cada grupo, os elementos devem estar na seguinte ordem:
         *   Public.
         *   Internal.
         *   Protected internal.
         *   Protected.
         *   Private.
-    *   Onde for possível, agrupe as implementações de interfaces juntas.
+    *   =Onde for possível, agrupe as implementações de interfaces juntas.
 
 ### Regras de Espaçamento
 
