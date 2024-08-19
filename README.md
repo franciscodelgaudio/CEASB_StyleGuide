@@ -9,9 +9,7 @@
 *   Nomes de classes, métodos, enumerações, campos públicos, propriedades públicas, namespaces: `PascalCase`.
 *   Nomes de variáveis locais, parâmetros: `camelCase`.
 *   Nomes de campos e propriedades privadas, protegidas, internas e protegidas internas: `_camelCase`.
-*   A convenção de nomenclatura não é afetada por modificadores como const, static, readonly, etc.
 *   Para a escrita de palavras, qualquer coisa sem espaços internos, incluindo siglas, é considerada uma "palavra". Por exemplo, `MyRpc` em vez de `MyRPC`.
-*   Nomes de interfaces começam com `I`, por exemplo, `IInterface`.
 *   Escolha nomes de identificador facilmente legíveis.
 *   Favoreça a legibilidade em vez da brevidade.
 *   Não use sublinhados, hifens ou outros caracteres não alfanuméricos.
@@ -25,46 +23,44 @@
 
 #### Classes, Structs, Interfaces e Genéricos
 
-*   NOMEIE classes e structs com substantivos ou frases nominais, usando PascalCasing.
-*   NOMEIE interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
-*   CONSIDERE encerrar o nome de classes derivadas com o nome da classe base.
-*   FAÇA nomeações de interface de prefixo com a letra I, para indicar que o tipo é uma interface.
-*   VERIFIQUE se os nomes diferem-se apenas pelo prefixo "I" no nome da interface quando você estiver definindo um par classe-interface em que a classe é uma implementação padrão da interface.
+*   Nomes de interfaces começam com `I`, por exemplo, `IInterface`.
+*   Nomeie classes e structs com substantivos ou frases nominais, usando PascalCasing.
+*   Nomeie interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
+*   Considere encerrar o nome de classes derivadas com o nome da classe base.
 
 #### Métodos
 
-*   NOMEIE os métodos que sejam verbos ou frases verbais.
+*   Nomeie os métodos usando verbos ou frases verbais.
 
 #### Propriedades
 
-*   NOMEIE as propriedades usando um substantivo, uma frase nominal ou um adjetivo.
-*   NÃO tenha propriedades que correspondam ao nome dos métodos "Get", como no exemplo a seguir:
-*   NOMEIE as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
-*   NOMEIE as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has", mas somente quando isso adicionar valor.
-*   CONSIDERE nomear uma propriedade com o mesmo nome de seu tipo.
+*   Nomeie as propriedades usando um substantivo, uma frase nominal ou um adjetivo.
+*   Não tenha propriedades que correspondam ao nome dos métodos "Get".
+*   Nomeie as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
+*   Nomeie as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has", mas somente quando isso adicionar valor.
+*   Considere nomear uma propriedade com o mesmo nome de seu tipo.
 
 #### Eventos
 
-*   NOMEIE os eventos com um verbo ou uma frase verbal.
-*   NOMEIE os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
-*   NOMEIE os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
-*   USE dois parâmetros nomeados como sender e e nos manipuladores de eventos.
-*   NOMEIE as classes de argumento de evento com o sufixo "EventArgs".
+*   Nomeie os eventos com um verbo ou uma frase verbal.
+*   Nomeie os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
+*   Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
+*   Nomeie as classes de argumento de evento com o sufixo "EventArgs".
 
 #### Campos
 
-*   USE PascalCasing nos nomes de campos.
-*   NOMEIE os campos usando um substantivo, uma frase nominal ou um adjetivo.
-*   NÃO use um prefixo para nomes de campos.
+*   Use PascalCasing nos nomes de campos.
+*   Nomeie os campos usando um substantivo, uma frase nominal ou um adjetivo.
+*   Não use um prefixo para nomes de campos.
 
 #### Genéricos e Enumerações
 
-*   NOMEIE parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
-*   CONSIDERE usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra.
-*   USE nomes de prefixo descritivos de parâmetro de tipo com T.
-*   CONSIDERE indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
-*   USE um nome de tipo singular para uma enumeração, a menos que seus valores sejam campos de bits.
-*   NÃO use um sufixo "Enum" em nomes de tipo enumerado.
+*   Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
+*   Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra.
+*   Use nomes de prefixo descritivos de parâmetro de tipo com T.
+*   Considere indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
+*   Use um nome de tipo singular para uma enumeração, a menos que seus valores sejam campos de bits.
+*   Não use um sufixo "Enum" em nomes de tipo enumerado.
 
 ### Organização
 
@@ -108,68 +104,10 @@
 *   Prefira retornos antecipados em vez de aninhamento de blocos if.
 *   Prefira a combinação de várias condições relacionadas em um único if quando isso melhora a legibilidade.
 
-Exemplo:
-
-Antes:
-```c#
-public void ProcessOrder(Order order)
-{
-    if (order != null)
-    {
-        if (order.IsPaid)
-        {
-            if (order.HasItems)
-            {
-                // Process the order
-                Console.WriteLine("Order processed.");
-            }
-            else
-            {
-                Console.WriteLine("Order has no items.");
-            }
-        }
-        else
-        {
-            Console.WriteLine("Order is not paid.");
-        }
-    }
-    else
-    {
-        Console.WriteLine("Order is null.");
-    }
-}
-
-```
-Depois:
-```c#
-public void ProcessOrder(Order order)
-{
-    if (order == null)
-    {
-        Console.WriteLine("Order is null.");
-        return;
-    }
-
-    if (!order.IsPaid)
-    {
-        Console.WriteLine("Order is not paid.");
-        return;
-    }
-
-    if (!order.HasItems)
-    {
-        Console.WriteLine("Order has no items.");
-        return;
-    }
-
-    // Process the order
-    Console.WriteLine("Order processed.");
-}
-```
 ### Classe vs Struct
 
-*   CONSIDERE definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
-*   EVITE definir um struct, a menos que o tipo tenha todas as características a seguir:
+*   Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
+*   Evite definir um struct, a menos que o tipo tenha todas as características a seguir:
     * Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
     * Tem um tamanho de instância inferior a 16 bytes.
     * É imutável.
@@ -177,11 +115,10 @@ public void ProcessOrder(Order order)
 
 #### Design de Struct
 
-*   NÃO forneça um construtor sem parâmetros para um struct.
-*   NÃO defina tipos mutáveis de valor.
-*   VERIFIQUE se um estado em que todos os dados da instância estão definidos como zero, falsos ou nulos (conforme apropriado) é válido.
+*   Não forneça um construtor sem parâmetros para um struct.
+*   Não defina tipos mutáveis de valor.
+*   Verifique se um estado em que todos os dados da instância estão definidos como zero, falsos ou nulos (conforme apropriado) é válido.
 *   Implemente IEquatable<T> nos tipos de valor.
-*   NÃO estenda ValueType explicitamente. Na verdade, a maioria das linguagens impede isso.
  
 ### Interface
 
@@ -190,7 +127,6 @@ public void ProcessOrder(Order order)
 *   EVITE o uso de interfaces de marcador (interfaces sem membros).
 *   Se você precisar marcar uma classe como tendo uma característica específica (marcador), no geral, use um atributo personalizado em vez de uma interface.
 *   FORNEÇA pelo menos um tipo que é uma implementação de uma interface.
-*   Fazer isso ajuda a validar o design da interface. Por exemplo, List<T> é uma implementação da interface IList<T>.
 *   Forneça pelo menos uma API que consome cada interface que você define (um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface).
 *   Não adicione membros a uma interface que tenha sido enviada anteriormente.
 
@@ -259,7 +195,7 @@ C# não fornece um mecanismo óbvio para remover itens de contêineres enquanto 
     *   Para variáveis transitórias que são passadas diretamente para outros métodos -
         e.g. `var item = GetItem(); ProcessItem(item);`
 
-*   Desencourajado:
+*   Desencorajado:
 
     *   Ao trabalhar com tipos básicos - e.g. `var success = true;`
     *   Ao trabalhar com tipos numéricos incorporados resolvidos pelo compilador - e.g. `var
@@ -275,7 +211,6 @@ C# não fornece um mecanismo óbvio para remover itens de contêineres enquanto 
     a adição e remoção de atributos e garante que cada atributo seja fácil de pesquisar.
 
 ### Nomeação de Argumentos
-Derivado do guia de estilo C++ do Google.
 
 Quando o significado de um argumento de função não é óbvio, considere uma das seguintes soluções:
 
@@ -372,3 +307,121 @@ DecimalNumber product = CalculateProduct(values, options, completionDelegate: nu
 *   ✔️ Use object como o tipo do primeiro parâmetro do manipulador de eventos e chame-o de sender.
 *   ✔️ Use System.EventArgs ou a respectiva subclasse como o tipo do segundo parâmetro do manipulador de eventos e chame-o de e.
 *   ❌ Não tenha mais de dois parâmetros em manipuladores de eventos.
+
+### Campos
+
+*   ❌ NÃO forneça campos de instância públicos ou protegidos.
+*   ✔️ USE campos constantes para constantes que nunca serão alteradas.
+*   ✔️ USE campos estáticos públicos readonly para instâncias de objeto predefinidas.
+*   ❌ NÃO atribua instâncias de tipos mutáveis a campos readonly.
+
+### Métodos de Extensão
+
+*   ❌ EVITE definir métodos de extensão de maneira frívola, especialmente em tipos que não são seus.
+*   ✔️ CONSIDERE usar métodos de extensão em qualquer um dos seguintes cenários:
+*   ❌ EVITE definir métodos de extensão em System.Object.
+*   ❌ NÃO coloque métodos de extensão no mesmo namespace que o tipo estendido, a menos que seja para adicionar métodos a interfaces ou para gerenciamento de dependências.
+*   ❌ EVITE definir dois ou mais métodos de extensão com a mesma assinatura, mesmo que eles residam em namespaces diferentes.
+*   ✔️ CONSIDERE definir métodos de extensão no mesmo namespace que o tipo estendido se o tipo for uma interface e se os métodos de extensão forem destinados a serem usados na maioria ou em todos os casos.
+*   ❌ NÃO defina métodos de extensão que implementam um recurso em namespaces normalmente associados a outros recursos. Em vez disso, defina-os no namespace associado ao recurso ao qual pertencem.
+*   ❌ EVITE a nomenclatura genérica de namespaces dedicados aos métodos de extensão (por exemplo, "Extensões"). Use um nome descritivo (por exemplo, "Roteamento") em vez disso.
+
+### Sobrecarga de Operador
+
+*   ❌ EVITE definir sobrecargas de operador, exceto em tipos que devem parecer tipos primitivos (internos).
+*   ✔️ CONSIDERE definir sobrecargas de operador em um tipo que deve parecer um tipo primitivo.
+*   ✔️ DEFINA sobrecargas de operador em structs que representam números (como System.Decimal).
+*   ❌ NÃO seja engraçadinho ao definir sobrecargas de operador.
+*   ❌ NÃO forneça sobrecargas de operador, a não ser que pelo menos um dos operandos seja do tipo que define a sobrecarga.
+*   ✔️ SOBRECARREGUE operadores de maneira simétrica.
+*   ✔️ CONSIDERE fornecer métodos com nomes amigáveis que correspondem a cada operador sobrecarregado.
+
+#### Operadores de Conversão
+
+*   ❌ NÃO forneça um operador de conversão se essa conversão não for claramente esperada pelos usuários finais.
+*   ❌ NÃO defina operadores de conversão fora do domínio de um tipo.
+*   ❌ NÃO forneça um operador de conversão implícita se a conversão potencialmente tiver perda.
+*   ❌ NÃO gere exceções de conversões implícitas.
+*   ✔️ GERE System.InvalidCastException se uma chamada para um operador de conversão resultar em uma conversão de perda e o contrato do operador não permitir conversões com perda.
+
+### Parâmetros
+
+*   ✔️ Use o tipo de parâmetro menos derivado que fornece a funcionalidade exigida pelo membro.
+*   ❌ NÃO use parâmetros reservados.
+*   ❌ NÃO tenha métodos expostos publicamente que usem ponteiros, matrizes de ponteiros ou matrizes multidimensionais como parâmetros.
+*   ✔️ Coloque todos os parâmetros out seguindo todos os valores e parâmetros ref (excluindo matrizes de parâmetros), mesmo que isso resulte em uma inconsistência na ordenação de parâmetros entre sobrecargas (consulte Sobrecarga de membro).
+*   ✔️ Seja consistente na nomeação dos parâmetros ao substituir membros ou implementar membros da interface.
+
+#### Enum e Boolean
+
+*   ✔️ Use enumerações se um membro tiver dois ou mais parâmetros boolianos.
+*   ❌ NÃO use boolianos, a menos que você tenha certeza absoluta de que nunca haverá necessidade de mais de dois valores.
+*   ✔️ Considere o uso de boolianos para parâmetros de construtor que são realmente valores de dois estados e são usados para inicializar propriedades booleanas.
+
+#### Validação de Argumentos
+
+*   ✔️ Valide argumentos passados para membros públicos, protegidos ou explicitamente implementados. Gere System.ArgumentException ou uma de suas subclasses, se a validação falhar.
+*   ✔️ Gere ArgumentNullException se um argumento nulo for passado e o membro não oferecer suporte a argumentos nulos.
+*   ✔️ Valide parâmetros de enumeração.
+*   ❌ NÃO use Enum.IsDefined para verificações de intervalo de enumeração.
+*   ✔️ Lembre-se de que os argumentos mutáveis podem ter sido alterados após a validação.
+
+#### Passagem de Parâmetros
+
+*   ❌ Evite usar os parâmetros out ou ref.
+*   ❌ Não passe tipos de referência por referência.
+
+### Eventos e retornos de chamadas
+
+*   ✔️ CONSIDERE usar retornos de chamada para permitir que os usuários forneçam código personalizado a ser executado pela estrutura.
+*   ✔️ CONSIDERE usar eventos para permitir que os usuários personalizem o comportamento de uma estrutura sem necessidade de entender o design orientado ao objeto.
+*   ✔️ PREFIRA eventos a retornos de chamada simples, pois eles são mais familiares para uma gama maior de desenvolvedores e são integrados ao preenchimento de declaração do Visual Studio.
+*   ❌ EVITE usar retornos de chamada em APIs sensíveis ao desempenho.
+*   ✔️ USE os novos tipos Func<...>, Action<...> ou Expression<...> em vez de delegados personalizados ao definir APIs com retornos de chamada.
+*   ✔️ MEÇA e entender as implicações de desempenho de usar Expression<...>, em vez de usar delegados Func<...> e Action<...>.
+*   ✔️ Entenda que, ao chamar um delegado, você está executando código arbitrário, o que pode ter repercussões de segurança, correção e compatibilidade.
+
+### Exceções
+
+*   ❌ NÃO retorne códigos de erro.
+*   ✔️ RELATE relata falhas de execução gerando exceções.
+*   ✔️ CONSIDERE encerrar o processo chamando System.Environment.FailFast (.NET Framework recurso 2.0), em vez de gerar uma exceção, se o código encontrar uma situação em que não seja seguro para execução adicional.
+*   ❌ NÃO use exceções para o fluxo normal de controle, se possível.
+*   ✔️ CONSIDERE as implicações de desempenho de gerar exceções. As taxas de geração acima de 100 por segundo provavelmente afetarão visivelmente o desempenho da maioria dos aplicativos.
+*   ✔️ DOCUMENTE todas as exceções geradas por membros publicamente chamáveis devido a uma violação do contrato de membro (em vez de uma falha do sistema) e trate-as como parte de seu contrato.
+*   ❌ NÃO tem membros públicos que possam gerar ou não com base em alguma opção.
+*   ❌ NÃO tenha membros públicos que retornem exceções como o valor retornado ou um parâmetro out.
+*   ✔️ CONSIDERE usar métodos do construtor de exceções.
+*   ❌ NÃO gere exceções de blocos de filtro de exceção.
+*   ❌ EVITE gerar explicitamente exceções de blocos finally. Exceções geradas implicitamente resultantes de métodos de chamada que geram são aceitáveis.
+
+#### Tipos de Exeções
+
+Exceção e SystemException
+*   ❌ NÃO lance System.Exception ou System.SystemException.
+*   ❌ NÃO capture System.Exception ou System.SystemException no código da estrutura, a menos que você pretenda relançar.
+*   ❌ EVITE capturar System.Exception ou System.SystemException, exceto em manipuladores de exceção de nível superior.
+
+ApplicationException
+*   ❌ NÃO lance ou derive de ApplicationException.
+
+InvalidOperationException
+*   ✔️ LANCE um InvalidOperationException se o objeto estiver em um estado inadequado.
+
+ArgumentException, ArgumentNullException e ArgumentOutOfRangeException
+*   ✔️ LANCE ArgumentException ou um de seus subtipos se argumentos ruins forem passados para um membro. Prefira o tipo de exceção mais derivado, se aplicável.
+*   ✔️ DEFINA a propriedade ParamName ao lançar uma das subclasses de ArgumentException.
+*   ✔️ USE value para o nome do parâmetro de valor implícito dos setters de propriedade.
+
+NullReferenceException, IndexOutOfRangeException e AccessViolationException
+*   ❌ NÃO permita que APIs de chamada pública lancem de forma explícita ou implícita NullReferenceException, AccessViolationException ou IndexOutOfRangeException. Essas exceções são reservadas e lançadas pelo mecanismo de execução e na maioria dos casos indicam um bug.
+
+StackOverflowException
+*   ❌ NÃO lance StackOverflowException explicitamente. A exceção deve ser lançada explicitamente apenas pelo CLR.
+*   ❌ NÃO capture StackOverflowException.
+
+OutOfMemoryException
+*   ❌ NÃO lance OutOfMemoryException explicitamente. Essa exceção deve ser lançada apenas pela infraestrutura CLR.
+
+ComException, SEHException e ExecutionEngineException
+*   ❌ NÃO lance COMException, ExecutionEngineException e SEHException explicitamente. Essas exceções devem ser lançadas apenas pela infraestrutura CLR.
