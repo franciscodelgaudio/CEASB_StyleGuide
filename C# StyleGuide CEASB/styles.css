@@ -1,0 +1,120 @@
+/* Reset básico para remover margens e espaçamentos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais para o body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Estilo para o título principal */
+h1 {
+    color: #007BFF;
+    border-bottom: 3px solid #007BFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para subtítulos */
+h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+h3, h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: #555;
+}
+
+/* Estilo para listas */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para código em linha */
+code {
+    background-color: #e8e8e8;
+    color: #228B22; /* Verde escuro */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Estilo para blocos de código */
+pre {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Estilo para pré-formatar o código */
+pre code {
+    display: block;
+    white-space: pre-wrap;
+}
+
+/* Estilo para links */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilo para elementos de destaque */
+.highlight {
+    background-color: #fffae6;
+    padding: 5px;
+    border-radius: 3px;
+}

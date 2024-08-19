@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1 id="c-at-ceasb-style-guide">C# at CEASB Style Guide</h1>
+<h2 id="diretrizes-de-formata-o">Diretrizes de Formatação</h2>
+<h3 id="regras-de-nomenclatura">Regras de Nomenclatura</h3>
+<h4 id="c-digo">Código</h4>
+<ul>
+<li>Nomes de classes, métodos, enumerações, campos públicos, propriedades públicas, namespaces: <code>PascalCase</code>.</li>
+<li>Nomes de variáveis locais, parâmetros: <code>camelCase</code>.</li>
+<li>Nomes de campos e propriedades privadas, protegidas, internas e protegidas internas: <code>_camelCase</code>.</li>
+<li>Para a escrita de palavras, qualquer coisa sem espaços internos, incluindo siglas, é considerada uma &quot;palavra&quot;. Por exemplo, <code>MyRpc</code> em vez de <code>MyRPC</code>.</li>
+<li>Escolha nomes de identificador facilmente legíveis.</li>
+<li>Favoreça a legibilidade em vez da brevidade.</li>
+<li>Não use sublinhados, hifens ou outros caracteres não alfanuméricos.</li>
+<li>Não use abreviações ou contrações como parte de nomes de identificador.</li>
+</ul>
+<h4 id="arquivos">Arquivos</h4>
+<ul>
+<li>Nomes de arquivos e diretórios são em <code>PascalCase</code>, por exemplo, <code>MyFile.cs</code>.</li>
+<li>Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, <code>MyClass.cs</code>.</li>
+<li>Em geral, prefira uma classe principal por arquivo.</li>
+</ul>
+<h4 id="classes-structs-interfaces-e-gen-ricos">Classes, Structs, Interfaces e Genéricos</h4>
+<ul>
+<li>Nomes de interfaces começam com <code>I</code>, por exemplo, <code>IInterface</code>.</li>
+<li>Nomeie classes e structs com substantivos ou frases nominais, usando PascalCasing.</li>
+<li>Nomeie interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.</li>
+<li>Considere encerrar o nome de classes derivadas com o nome da classe base.</li>
+</ul>
+<h4 id="m-todos">Métodos</h4>
+<ul>
+<li>Nomeie os métodos usando verbos ou frases verbais.</li>
+</ul>
+<h4 id="propriedades">Propriedades</h4>
+<ul>
+<li>Nomeie as propriedades usando um substantivo, uma frase nominal ou um adjetivo.</li>
+<li>Não tenha propriedades que correspondam ao nome dos métodos &quot;Get&quot;.<pre><code class="lang-c#">// <span class="hljs-type">Incorreto</span>
+public <span class="hljs-built_in">string</span> <span class="hljs-type">TextWriter</span> { get <span class="hljs-meta">{...}</span> <span class="hljs-built_in">set</span> <span class="hljs-meta">{...}</span> }
+public <span class="hljs-built_in">string</span> <span class="hljs-type">GetTextWriter</span>(<span class="hljs-built_in">int</span> value) { ... }
+</code></pre>
+</li>
+<li>Nomeie as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por &quot;List&quot; ou &quot;Collection&quot;.<pre><code class="lang-c#"><span class="hljs-comment">// Incorreto</span>
+<span class="hljs-keyword">public</span> List&lt;<span class="hljs-keyword">string</span>&gt; NameList { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+<span class="hljs-comment">// Correto</span>
+<span class="hljs-keyword">public</span> List&lt;<span class="hljs-keyword">string</span>&gt; Names { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+</code></pre>
+</li>
+<li>Nomeie as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com &quot;Is&quot;, &quot;Can&quot; ou &quot;Has&quot;, mas somente quando isso adicionar valor.</li>
+<li>Considere nomear uma propriedade com o mesmo nome de seu tipo.<pre><code class="lang-c#"><span class="hljs-keyword">public</span> Color Color { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+</code></pre>
+</li>
+</ul>
+<h4 id="eventos">Eventos</h4>
+<ul>
+<li>Nomeie os eventos com um verbo ou uma frase verbal.</li>
+<li>Nomeie os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.</li>
+<li>Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo &quot;EventHandler&quot;.</li>
+<li><p>Nomeie as classes de argumento de evento com o sufixo &quot;EventArgs&quot;.</p>
+<pre><code class="lang-c#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ClosingEventArgs</span>(<span class="hljs-params"></span>) </span>=&gt; {};
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ClosedEventArgs</span>(<span class="hljs-params"></span>) </span>=&gt; {};
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ClosingEventHandler</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, ClosingEventArgs e</span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ClosedEventHandler</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, ClosedEventArgs e</span>)</span>;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> ClosingEventHandler Closing;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> ClosedEventHandler Closed;
+</code></pre>
+</li>
+</ul>
+<h4 id="gen-ricos-e-enumera-es">Genéricos e Enumerações</h4>
+<ul>
+<li>Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.</li>
+<li>Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra. Por exemplo, em uma classe genérica <code>List&lt;T&gt;</code>, <code>T</code> representa o tipo dos elementos na lista.</li>
+<li>Use nomes de prefixo descritivos de parâmetro de tipo com T. Por exemplo, <code>TKey</code> e <code>TValue</code> em um dicionário genérico <code>Dictionary&lt;TKey, TValue&gt;</code>.</li>
+<li>Considere indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.</li>
+<li>Use um nome de tipo singular para uma enumeração.</li>
+<li>Não use um sufixo &quot;Enum&quot; em nomes de tipo enumerado.</li>
+</ul>
+<h3 id="organiza-o">Organização</h3>
+<ul>
+<li>Modificadores ocorrem na seguinte ordem: <code>public protected internal private
+new abstract virtual override sealed static readonly extern unsafe volatile
+async</code>.</li>
+<li>Ordem dos membros da classe:<ul>
+<li>Agrupe os membros da classe na seguinte ordem:<ul>
+<li>Classes aninhadas, enums, delegates e eventos.</li>
+<li>Campos static, cons e readonly.</li>
+<li>Campos e propriedades.</li>
+<li>Construtores e finalizadores.</li>
+<li>Métodos.</li>
+</ul>
+</li>
+<li>Dentro de cada grupo, os elementos devem estar na seguinte ordem:<ul>
+<li>Public.</li>
+<li>Internal.</li>
+<li>Protected internal.</li>
+<li>Protected.</li>
+<li>Private.</li>
+</ul>
+</li>
+<li>Onde for possível, agrupe as implementações de interfaces juntas.</li>
+</ul>
+</li>
+</ul>
+<h3 id="regras-de-espa-amento">Regras de Espaçamento</h3>
+<ul>
+<li>Use o estilo &quot;Allman&quot; para chaves: abra e feche sua própria nova linha. As chaves se alinham com o nível de recuo atual.</li>
+<li>Limite de colunas: 80.</li>
+<li>Chaves usadas mesmo quando opcionais.</li>
+<li>Sem espaço após <code>if</code>/<code>for</code>/<code>while</code>, etc., e após vírgulas.</li>
+<li>Nenhum espaço após um parêntese de abertura ou antes de um parêntese de fechamento.</li>
+<li>As quebras de linha devem ocorrer após os operadores lógicos, se necessário.</li>
+</ul>
+<h2 id="diretrizes-de-tipo">Diretrizes de Tipo</h2>
+<h3 id="constantes">Constantes</h3>
+<ul>
+<li>Variáveis e campos que podem ser const devem sempre ser const.</li>
+<li>Se const não for possível, readonly pode ser uma alternativa adequada.</li>
+<li>Prefira constantes nomeadas a números mágicos.</li>
+</ul>
+<h3 id="express-es-condicionais">Expressões Condicionais</h3>
+<ul>
+<li><p>Prefira a combinação de várias condições relacionadas em um único <code>if</code> quando isso melhora a legibilidade.</p>
+<pre><code class="lang-c#"><span class="hljs-keyword">if</span> <span class="hljs-comment">(condicao1)</span>
+{
+    <span class="hljs-keyword">if</span> <span class="hljs-comment">(condicao2)</span>
+    { ... }
+}
+
+<span class="hljs-comment">// Combinação de condições</span>
+<span class="hljs-keyword">if</span> <span class="hljs-comment">(condicao1 &amp;&amp; condicao2)</span>
+{ ... }
+</code></pre>
+</li>
+</ul>
+<h3 id="classe-vs-struct">Classe vs Struct</h3>
+<ul>
+<li>Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.</li>
+<li>Não forneça um construtor sem parâmetros para um struct.</li>
+<li>Não defina tipos mutáveis de valor.</li>
+<li>Evite definir um struct, a menos que o tipo tenha todas as características a seguir:<ul>
+<li>Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).</li>
+<li>Tem um tamanho de instância inferior a 16 bytes.</li>
+<li>É imutável.</li>
+<li>Não precisará ser encaixotado com frequência.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-c#">    <span class="hljs-comment">// Point é pequeno, usado em operações rápidas frequentemente e tem apenas um tipo.</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">struct</span> Point
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> X { <span class="hljs-keyword">get</span>; }
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Y { <span class="hljs-keyword">get</span>; }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Point</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y</span>)
+        </span>{
+            X = x;
+            Y = y;
+        }
+    }
+</code></pre>
+<h3 id="interface">Interface</h3>
+<ul>
+<li><p>Considere definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
+Exemplo:</p>
+<pre><code class="lang-c#"><span class="hljs-comment">// Se você tem uma classe que já herda de outra classe,</span>
+<span class="hljs-comment">// mas precisa adicionar funcionalidade adicional, uma interface pode ser a solução.</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> Eat() { <span class="hljs-comment">/* ... */</span> }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ICanFly</span>
+</span>{
+    <span class="hljs-keyword">void</span> Fly();
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bird</span> : <span class="hljs-title">Animal</span>, <span class="hljs-title">ICanFly</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> Fly() { <span class="hljs-comment">/* ... */</span> }
+}
+</code></pre>
+</li>
+<li>Sempre que você define uma interface, deve haver pelo menos uma classe que a implemente.</li>
+<li>Forneça pelo menos um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface.</li>
+</ul>
+<h3 id="enumera-o">Enumeração</h3>
+<ul>
+<li>Use uma enumeração para parâmetros, propriedades e valores retornados fortemente tipados que representam conjuntos de valores.</li>
+<li>Não use uma enumeração para conjuntos abertos (como a versão do sistema operacional, nomes de amigos etc.).<pre><code class="lang-c#"><span class="hljs-comment">// Incorreto</span>
+<span class="hljs-comment">// Conjuntos abertos podem mudar frequentemente, tornando as enumerações inadequadas.</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">OperatingSystem</span>
+{</span>
+    Windows,
+    MacOS,
+    Linux
+}
+</code></pre>
+</li>
+<li>Evite expor publicamente enumerações com apenas um valor.</li>
+<li>Forneça um valor de zero em enumerações simples.<pre><code class="lang-c#">public <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Status</span></span>
+{
+    None = <span class="hljs-number">0</span>, <span class="hljs-regexp">//</span> Valor zero representando <span class="hljs-string">"nenhum estado"</span>
+    Active,
+    Inactive
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="ref-e-out">ref e out</h3>
+<ul>
+<li><p>Use out para retornos que não são também entradas.</p>
+<pre><code class="lang-c#"><span class="hljs-comment">// O parâmetro out é usado quando você precisa retornar múltiplos valores de um método,</span>
+<span class="hljs-comment">// mas esses valores não são usados como entradas.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">GetCoordinates</span>(<span class="hljs-params"><span class="hljs-keyword">out</span> <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">out</span> <span class="hljs-keyword">int</span> y</span>)
+</span>{
+    x = <span class="hljs-number">10</span>;
+    y = <span class="hljs-number">20</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExampleUsage</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-keyword">int</span> x, y;
+    GetCoordinates(<span class="hljs-keyword">out</span> x, <span class="hljs-keyword">out</span> y);
+    Console.WriteLine(<span class="hljs-string">$"Coordinates: (<span class="hljs-subst">{x}</span>, <span class="hljs-subst">{y}</span>)"</span>);
+}
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>Coloque os parâmetros out após todos os outros parâmetros na definição do método.</li>
+<li>ref deve ser usado raramente, quando é necessário modificar uma entrada.</li>
+</ul>
+<h3 id="array-vs-list">Array vs List</h3>
+<ul>
+<li>Em geral, prefira <code>List&lt;&gt;</code> em vez de arrays para variáveis públicas, propriedades e tipos de retorno.</li>
+<li>Prefira <code>List&lt;&gt;</code> quando o tamanho do contêiner pode mudar.</li>
+<li>Prefira arrays quando o tamanho do contêiner é fixo e conhecido no momento da construção.</li>
+<li>Prefira arrays para arrays multidimensionais.</li>
+</ul>
+<h3 id="chamando-delegates">Chamando delegates</h3>
+<ul>
+<li>Ao chamar um delegado, use <code>Invoke()</code> e o operador condicional nulo - por exemplo,
+<code>SomeDelegate?.Invoke()</code>.</li>
+</ul>
+<h3 id="a-palavra-chave-var-">A Palavra-Chave <code>var</code></h3>
+<ul>
+<li>O uso de <code>var</code> é encorajado se ajudar na legibilidade ao evitar nomes de tipos que
+são braulhentos, óbvios ou não importantes.</li>
+<li><p>Encorajado:</p>
+<ul>
+<li>Quando o tipo é óbvio - e.g. <code>var apple = new Apple();</code>, ou <code>var
+request = Factory.Create&lt;HttpRequest&gt;();</code></li>
+<li>Para variáveis transitórias que são passadas diretamente para outros métodos -
+e.g. <code>var item = GetItem(); ProcessItem(item);</code></li>
+</ul>
+</li>
+<li><p>Desencorajado:</p>
+<ul>
+<li>Ao trabalhar com tipos básicos - e.g. <code>var success = true;</code></li>
+<li>Ao trabalhar com tipos numéricos incorporados resolvidos pelo compilador - e.g. <code>var
+number = 12 * ReturnsFloat();</code></li>
+<li>Quando os usuários se beneficiariam claramente ao conhecer o tipo - e.g. <code>var
+listOfItems = GetList();</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="diretrizes-de-m-todos-em-c">Diretrizes de Métodos em C</h2>
+<h3 id="sobrecarga-de-m-todos">Sobrecarga de Métodos</h3>
+<ul>
+<li>Se um parâmetro em uma sobrecarga representar a mesma entrada que um parâmetro em outra sobrecarga, os parâmetros deverão ter o mesmo nome.</li>
+<li>Parâmetros com o mesmo nome devem aparecer na mesma posição em todas as sobrecargas.</li>
+<li>Permita que <code>null</code> seja passado para argumentos opcionais.</li>
+</ul>
+<h3 id="propriedades">Propriedades</h3>
+<ul>
+<li>Crie propriedades somente <code>get</code> se o chamador não puder alterar o valor da propriedade.</li>
+<li>Não forneça propriedades somente <code>set</code> ou propriedades com um setter que tenha acessibilidade mais ampla do que o getter.</li>
+</ul>
+<h4 id="propriedades-indexadas">Propriedades Indexadas</h4>
+<ul>
+<li>Considere usar indexadores para dar acesso aos dados armazenados em uma matriz interna.</li>
+<li>Se você estiver criando uma classe que representa uma coleção de itens, como uma lista personalizada ou um dicionário.</li>
+<li>Evite usar propriedades indexadas com mais de um parâmetro.</li>
+<li><p>Use o nome <code>Item</code> para propriedades indexadas.</p>
+<pre><code class="lang-c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyList</span>
+{
+    <span class="hljs-keyword">public</span> List&lt;<span class="hljs-keyword">string</span>&gt; Item = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-keyword">string</span>&gt;();
+
+    <span class="hljs-comment">// Indexador para acessar itens na lista</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-keyword">this</span>[<span class="hljs-keyword">int</span> index]
+    {
+        <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> Item[index]; }
+        <span class="hljs-keyword">set</span> { Item[index] = <span class="hljs-keyword">value</span>; }
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="construtores">Construtores</h3>
+<ul>
+<li>Faça construtores simples, idealmente padrão.</li>
+<li>Use parâmetros de construtor como atalhos para definir as propriedades principais.</li>
+<li>Use o mesmo nome para parâmetros de construtor e uma propriedade se os parâmetros do construtor forem usados para simplesmente definir a propriedade.</li>
+<li>Construtores devem ser simples e rápidos, evitando lógica complexa.</li>
+<li><p>Se um construtor não puder inicializar corretamente uma instância, ele deve lançar uma exceção.
+Exemplo das regras acima:</p>
+<pre><code class="lang-c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Account</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Username { <span class="hljs-keyword">get</span>; }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Account</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> username</span>)
+    </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">string</span>.IsNullOrWhiteSpace(username))
+        {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentException(<span class="hljs-string">"Username cannot be null or empty"</span>);
+        }
+        Username = username;
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="casting">Casting</h4>
+<ul>
+<li>Não forneça um casting se essa conversão não for claramente esperada pelos usuários finais.</li>
+<li>Não forneça um operador de conversão implícita se a conversão potencialmente tiver perda.</li>
+</ul>
+<h3 id="eventos">Eventos</h3>
+<ul>
+<li>Considere usar eventos para permitir que os usuários personalizem o comportamento de uma estrutura sem necessidade de entender o design orientado ao objeto.</li>
+<li>Prefira os novos tipos Func&lt;...&gt;, Action&lt;...&gt; ou Expression&lt;...&gt; em vez de delegados personalizados.</li>
+</ul>
+<pre><code class="lang-c#">    <span class="hljs-comment">// Ao invés de criar um delegado personalizado MyDelegate, use Action:</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExecuteAction</span><span class="hljs-params">(Action&lt;<span class="hljs-keyword">int</span>&gt; action)</span>
+    </span>{
+        action(<span class="hljs-number">42</span>);  <span class="hljs-comment">// Executa a ação passada</span>
+    }
+
+    <span class="hljs-comment">// Uso</span>
+    ExecuteAction(x =&gt; Console.WriteLine(x * <span class="hljs-number">2</span>));  <span class="hljs-comment">// Imprime 84</span>
+</code></pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
