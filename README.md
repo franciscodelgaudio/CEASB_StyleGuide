@@ -121,18 +121,20 @@
 *   =Prefira a combinação de várias condições relacionadas em um único if quando isso melhora a legibilidade.
 ```#c
     // Várias condições separadas
-    if (condicao1)
-    {
-        if (condicao2)
+    public Program {
+        if (condicao1)
+        {
+            if (condicao2)
+            {
+                // Código a ser executado
+            }
+        }
+        
+        // Combinação de condições
+        if (condicao1 && condicao2)
         {
             // Código a ser executado
         }
-    }
-    
-    // Combinação de condições
-    if (condicao1 && condicao2)
-    {
-        // Código a ser executado
     }
 ```
 
