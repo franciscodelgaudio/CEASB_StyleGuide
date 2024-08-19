@@ -231,114 +231,49 @@ Exemplo:
 *   =Coloque os parâmetros out após todos os outros parâmetros na definição do método.
 *   =ref deve ser usado raramente, quando é necessário modificar uma entrada.
 
-### Array vs List
+### =Array vs List
 
-*   Em geral, prefira `List<>` em vez de arrays para variáveis públicas, propriedades e tipos de retorno.
-*   Prefira `List<>` quando o tamanho do contêiner pode mudar.
-*   Prefira arrays quando o tamanho do contêiner é fixo e conhecido no momento da construção.
-*   Prefira arrays para arrays multidimensionais.
-*   Nota:
-    * Arrays e `List<>` representam contêineres lineares e contíguos.
-    * Semelhante aos arrays em C++ vs  `std::vector`, arrays têm capacidade fixa, enquanto `List<>` pode ser expandido.
-    * Em alguns casos, arrays são mais performáticos, mas, em geral, `List<>` é mais flexível.
+*   =Em geral, prefira `List<>` em vez de arrays para variáveis públicas, propriedades e tipos de retorno.
+*   =Prefira `List<>` quando o tamanho do contêiner pode mudar.
+*   =Prefira arrays quando o tamanho do contêiner é fixo e conhecido no momento da construção.
+*   =Prefira arrays para arrays multidimensionais.
 
-### Removendo de Contêineres Enquanto Itera
+### =Chamando delegates
 
-C# não fornece um mecanismo óbvio para remover itens de contêineres enquanto itera. Existem algumas opções:
+*   =Ao chamar um delegado, use `Invoke()` e o operador condicional nulo - por exemplo,
+    `SomeDelegate?.Invoke()`.
 
-*   Se tudo o que é necessário é remover itens que satisfazem uma condição, someList.RemoveAll(somePredicate) é recomendado.
-*   Se outros trabalhos precisam ser feitos na iteração, RemoveAll pode não ser suficiente.
-    Um padrão alternativo comum é criar um novo contêiner fora do loop, inserir itens para
-    manter no novo contêiner e trocar o contêiner original pelo novo ao final da iteração.
+### =A Palavra-Chave `var`
 
-### Chamando delegates
-
-*   Ao chamar um delegado, use `Invoke()` e o operador condicional nulo - por exemplo,
-    `SomeDelegate?.Invoke()`. Isso marca claramente a chamada no local da chamada como
-    ‘um delegado que está sendo chamado’. A verificação nula é concisa e robusta contra
-    condições de corrida de threads.
-
-### A Palavra-Chave `var`
-
-*   O uso de `var` é encorajado se ajudar na legibilidade ao evitar nomes de tipos que
+*   =O uso de `var` é encorajado se ajudar na legibilidade ao evitar nomes de tipos que
     são braulhentos, óbvios ou não importantes.
-*   Encorajado:
+*   =Encorajado:
 
-    *   Quando o tipo é óbvio - e.g. `var apple = new Apple();`, ou `var
+    *   =Quando o tipo é óbvio - e.g. `var apple = new Apple();`, ou `var
         request = Factory.Create<HttpRequest>();`
-    *   Para variáveis transitórias que são passadas diretamente para outros métodos -
+    *   =Para variáveis transitórias que são passadas diretamente para outros métodos -
         e.g. `var item = GetItem(); ProcessItem(item);`
 
-*   Desencorajado:
+*   =Desencorajado:
 
-    *   Ao trabalhar com tipos básicos - e.g. `var success = true;`
-    *   Ao trabalhar com tipos numéricos incorporados resolvidos pelo compilador - e.g. `var
+    *   =Ao trabalhar com tipos básicos - e.g. `var success = true;`
+    *   =Ao trabalhar com tipos numéricos incorporados resolvidos pelo compilador - e.g. `var
         number = 12 * ReturnsFloat();`
-    *   Quando os usuários se beneficiariam claramente ao conhecer o tipo - e.g. `var
+    *   =Quando os usuários se beneficiariam claramente ao conhecer o tipo - e.g. `var
         listOfItems = GetList();`
 
-### Atributos
-
-*   Atributos devem aparecer na linha acima do campo, propriedade ou método com
-    o qual estão associados, separados do membro por uma quebra de linha.
-*   Múltiplos atributos devem ser separados por quebras de linha. Isso facilita
-    a adição e remoção de atributos e garante que cada atributo seja fácil de pesquisar.
-
-### Nomeação de Argumentos
-
-Quando o significado de um argumento de função não é óbvio, considere uma das seguintes soluções:
-
-*   Se o argumento for uma constante literal e a mesma constante for usada em
-    várias chamadas de função de uma forma que pressupõe tacitamente que elas
-    são iguais, use uma constante nomeada para tornar essa restrição explícita
-    e garantir que ela se mantenha.
-*   Considere alterar a assinatura da função para substituir um argumento bool
-    por um argumento enum. Isso tornará os valores dos argumentos auto-descritivos.
-*   Substitua expressões grandes ou complexas aninhadas por variáveis nomeadas.
-*   Para funções que têm várias opções de configuração, considere definir uma
-    única classe ou struct para armazenar todas as opções e passar uma instância dela.
-    Essa abordagem tem várias vantagens. As opções são referenciadas pelo nome no
-    local da chamada, o que esclarece seu significado. Também reduz a contagem de
-    argumentos da função, tornando as chamadas de função mais fáceis de ler e escrever.
-    Como benefício adicional, os locais de chamada não precisam ser alterados quando uma nova opção é adicionada.
-    
-Considere o seguinte exemplo:
-
-```c#
-// Bad - what are these arguments?
-DecimalNumber product = CalculateProduct(values, 7, false, null);
-```
-
-versus:
-
-```c#
-// Good
-ProductOptions options = new ProductOptions();
-options.PrecisionDecimals = 7;
-options.UseCache = CacheUsage.DontUseCache;
-DecimalNumber product = CalculateProduct(values, options, completionDelegate: null);
-```
 ## Diretrizes de Métodos em C#
 
-### Sobrecarga de Métodos
+### =Sobrecarga de Métodos
 
-*   Tente usar nomes de parâmetro descritivos para indicar o padrão usado por sobrecargas mais curtas.
-*   Evite variar arbitrariamente nomes de parâmetro em sobrecargas. Se um parâmetro em uma sobrecarga representar a mesma entrada que um parâmetro em outra sobrecarga, os parâmetros deverão ter o mesmo nome.
-*   Evite ser inconsistente na ordenação dos parâmetros em membros sobrecarregados. Parâmetros com o mesmo nome devem aparecer na mesma posição em todas as sobrecargas.
-*   Faça apenas a sobrecarga mais longa virtual (se a extensibilidade for necessária). Sobrecargas mais curtas devem simplesmente chamar uma sobrecarga mais longa.
-*   Não use os modificadores ref ou out para sobrecarregar membros.
-*   Não faça sobrecargas com parâmetros na mesma posição e tipos semelhantes ainda que com semântica diferente.
-*   Permita que null seja passado para argumentos opcionais.
-*   Use sobrecarga de membro em vez de definir membros com argumentos padrão.
+*   =Se um parâmetro em uma sobrecarga representar a mesma entrada que um parâmetro em outra sobrecarga, os parâmetros deverão ter o mesmo nome.
+*   =Parâmetros com o mesmo nome devem aparecer na mesma posição em todas as sobrecargas.
+*   =Permita que `null` seja passado para argumentos opcionais.
 
-### Propriedades
+### =Propriedades
 
-*   Crie propriedades somente get se o chamador não puder alterar o valor da propriedade.
-*   Não forneça propriedades somente set ou propriedades com um setter que tenha acessibilidade mais ampla do que o getter.
-*   Forneça valores padrão concretos para todas as propriedades, garantindo que os padrões não resultem em uma brecha de segurança ou código extremamente ineficiente.
-*   Permita que as propriedades sejam definidas em qualquer ordem, mesmo que isso resulte em um estado temporário inválido do objeto.
-*   Preserve o valor anterior se um setter de propriedade gerar uma exceção.
-*   Evite gerar exceções de getters de propriedade.
+*   =Crie propriedades somente `get` se o chamador não puder alterar o valor da propriedade.
+*   =Não forneça propriedades somente `set` ou propriedades com um setter que tenha acessibilidade mais ampla do que o getter.
 
 #### Propriedades Indexadas
 
