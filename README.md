@@ -164,7 +164,8 @@ Exemplo:
 ```c#
     //Se você tem uma classe que já herda de outra classe,
     //mas precisa adicionar funcionalidade adicional, uma interface pode ser a solução.
-    public class Animal =
+    public class Animal
+    {
         public void Eat() { /* ... */ }
     }
     
