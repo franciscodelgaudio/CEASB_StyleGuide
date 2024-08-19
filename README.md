@@ -162,7 +162,8 @@
 *   =Considere definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
 Exemplo:
 ```c#
-    //Se você tem uma classe que já herda de outra classe, mas precisa adicionar funcionalidade adicional, uma interface pode ser a solução.
+    //Se você tem uma classe que já herda de outra classe,
+    //mas precisa adicionar funcionalidade adicional, uma interface pode ser a solução.
     public class Animal =
         public void Eat() { /* ... */ }
     }
