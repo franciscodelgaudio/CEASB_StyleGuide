@@ -71,13 +71,13 @@
     public event ClosedEventHandler Closed;
 ```
 
-#### Genéricos e Enumerações
+#### =Genéricos e Enumerações
 
 *   =Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
-*   Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra.
-*   Use nomes de prefixo descritivos de parâmetro de tipo com T.
-*   Considere indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
-*   Use um nome de tipo singular para uma enumeração, a menos que seus valores sejam campos de bits.
+*   =Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra. Por exemplo, em uma classe genérica `List<T>`, `T` representa o tipo dos elementos na lista.
+*   =Use nomes de prefixo descritivos de parâmetro de tipo com T. Por exemplo, `TKey` e `TValue` em um dicionário genérico `Dictionary<TKey, TValue>`.
+*   =Considere indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
+*   =Use um nome de tipo singular para uma enumeração.
 *   =Não use um sufixo "Enum" em nomes de tipo enumerado.
 
 ### =Organização
@@ -100,27 +100,41 @@
         *   Private.
     *   =Onde for possível, agrupe as implementações de interfaces juntas.
 
-### Regras de Espaçamento
+### =Regras de Espaçamento
 
-*   Use o estilo "Allman" para chaves: abra e feche sua própria nova linha. As chaves se alinham com o nível de recuo atual.
-*   Limite de colunas: 80.
-*   Chaves usadas mesmo quando opcionais.
-*   Espaço após `if`/`for`/`while`, etc., e após vírgulas.
-*   Nenhum espaço após um parêntese de abertura ou antes de um parêntese de fechamento.
-*   Não adicione um espaço após o parêntese e os argumentos de função, por exemplo, CollectItem(myObject, 0, 1);
-*   As quebras de linha devem ocorrer antes dos operadores binários, se necessário.
+*   =Use o estilo "Allman" para chaves: abra e feche sua própria nova linha. As chaves se alinham com o nível de recuo atual.
+*   =Limite de colunas: 80.
+*   =Chaves usadas mesmo quando opcionais.
+*   =Sem espaço após `if`/`for`/`while`, etc., e após vírgulas.
+*   =Nenhum espaço após um parêntese de abertura ou antes de um parêntese de fechamento.
+*   =As quebras de linha devem ocorrer após os operadores lógicos, se necessário.
 
 ## Diretrizes de Tipo
 
-### Constantes
+### =Constantes
 
-*   Variáveis e campos que podem ser const devem sempre ser const.
-*   Se const não for possível, readonly pode ser uma alternativa adequada.
-*   Prefira constantes nomeadas a números mágicos.
+*   =Variáveis e campos que podem ser const devem sempre ser const.
+*   =Se const não for possível, readonly pode ser uma alternativa adequada.
+*   =Prefira constantes nomeadas a números mágicos.
 
-### Expressões Condicionais
-*   Prefira retornos antecipados em vez de aninhamento de blocos if.
-*   Prefira a combinação de várias condições relacionadas em um único if quando isso melhora a legibilidade.
+### =Expressões Condicionais
+*   =Prefira a combinação de várias condições relacionadas em um único if quando isso melhora a legibilidade.
+```#c
+    // Várias condições separadas
+    if (condicao1)
+    {
+        if (condicao2)
+        {
+            // Código a ser executado
+        }
+    }
+    
+    // Combinação de condições
+    if (condicao1 && condicao2)
+    {
+        // Código a ser executado
+    }
+```
 
 ### Classe vs Struct
 
