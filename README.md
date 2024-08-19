@@ -275,12 +275,12 @@ Exemplo:
 *   =Crie propriedades somente `get` se o chamador não puder alterar o valor da propriedade.
 *   =Não forneça propriedades somente `set` ou propriedades com um setter que tenha acessibilidade mais ampla do que o getter.
 
-#### Propriedades Indexadas
+#### =Propriedades Indexadas
 
 *   =Considere usar indexadores para dar acesso aos dados armazenados em uma matriz interna.
 *   =Se você estiver criando uma classe que representa uma coleção de itens, como uma lista personalizada ou um dicionário.
 *   =Evite usar propriedades indexadas com mais de um parâmetro.
-*   Use o nome `Item` para propriedades indexadas.
+*   =Use o nome `Item` para propriedades indexadas.
 ```c#
     public class MyList
     {
