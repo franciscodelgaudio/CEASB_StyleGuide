@@ -324,12 +324,19 @@ Exemplo das regras acima:
 *   Não forneça um casting se essa conversão não for claramente esperada pelos usuários finais.
 *   Não forneça um operador de conversão implícita se a conversão potencialmente tiver perda.
 
-### Eventos e retornos de chamadas
+### Eventos
 
-*   CONSIDERE usar retornos de chamada para permitir que os usuários forneçam código personalizado a ser executado pela estrutura.
-*   CONSIDERE usar eventos para permitir que os usuários personalizem o comportamento de uma estrutura sem necessidade de entender o design orientado ao objeto.
-*   PREFIRA eventos a retornos de chamada simples, pois eles são mais familiares para uma gama maior de desenvolvedores e são integrados ao preenchimento de declaração do Visual Studio.
-*   EVITE usar retornos de chamada em APIs sensíveis ao desempenho.
-*   USE os novos tipos Func<...>, Action<...> ou Expression<...> em vez de delegados personalizados ao definir APIs com retornos de chamada.
-*   MEÇA e entender as implicações de desempenho de usar Expression<...>, em vez de usar delegados Func<...> e Action<...>.
-*   Entenda que, ao chamar um delegado, você está executando código arbitrário, o que pode ter repercussões de segurança, correção e compatibilidade.
+*   Considere usar eventos para permitir que os usuários personalizem o comportamento de uma estrutura sem necessidade de entender o design orientado ao objeto.
+*   Prefira os novos tipos Func<...>, Action<...> ou Expression<...> em vez de delegados personalizados.
+
+
+```c#
+    // Ao invés de criar um delegado personalizado MyDelegate, use Action:
+    public void ExecuteAction(Action<int> action)
+    {
+        action(42);  // Executa a ação passada
+    }
+    
+    // Uso
+    ExecuteAction(x => Console.WriteLine(x * 2));  // Imprime 84
+```
