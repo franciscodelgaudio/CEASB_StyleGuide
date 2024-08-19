@@ -302,9 +302,21 @@ Exemplo:
 *   =Use o mesmo nome para parâmetros de construtor e uma propriedade se os parâmetros do construtor forem usados para simplesmente definir a propriedade.
 *   =Construtores devem ser simples e rápidos, evitando lógica complexa.
 *   =Se um construtor não puder inicializar corretamente uma instância, ele deve lançar uma exceção.
-*   DECLARE explicitamente o construtor público sem parâmetros em classes, se esse construtor for necessário.
-*   EVITE definir explicitamente construtores sem parâmetros em structs.
-*   EVITE chamar membros virtuais em um objeto dentro de seu construtor.
+```c#
+    public class Account
+    {
+        public string Username { get; }
+    
+        public Account(string username)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                throw new ArgumentException("Username cannot be null or empty");
+            }
+            Username = username;
+        }
+    }
+```
 
 ### Eventos
 
