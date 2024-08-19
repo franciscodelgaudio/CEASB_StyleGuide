@@ -119,23 +119,16 @@
 
 ### =Expressões Condicionais
 *   =Prefira a combinação de várias condições relacionadas em um único if quando isso melhora a legibilidade.
-```#c
-    // Várias condições separadas
-    public Program {
-        if (condicao1)
-        {
-            if (condicao2)
-            {
-                // Código a ser executado
-            }
-        }
-        
-        // Combinação de condições
-        if (condicao1 && condicao2)
-        {
-            // Código a ser executado
-        }
+```c#
+    if (condicao1)
+    {
+        if (condicao2)
+        {...}
     }
+    
+    // Combinação de condições
+    if (condicao1 && condicao2)
+    {...}
 ```
 
 ### Classe vs Struct
