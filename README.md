@@ -182,15 +182,30 @@ Exemplo:
 *   =Sempre que você define uma interface, deve haver pelo menos uma classe que a implemente.
 *   =Forneça pelo menos um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface.
 
-### Enumeração
+### =Enumeração
 
-*   Use uma enumeração para parâmetros, propriedades e valores retornados fortemente tipados que representam conjuntos de valores.
-*   Prefira usar uma enumeração, em vez de constantes estáticas.
-*   Não use uma enumeração para conjuntos abertos (como a versão do sistema operacional, nomes de amigos etc.).
-*   Não forneça valores de enumeração reservados destinados a uso futuro.
-*   Evite expor publicamente enumerações com apenas um valor.
-*   Não inclua valores sentinelas em enumerações.
-*   Forneça um valor de zero em enumerações simples.
+*   =Use uma enumeração para parâmetros, propriedades e valores retornados fortemente tipados que representam conjuntos de valores.
+*   =Não use uma enumeração para conjuntos abertos (como a versão do sistema operacional, nomes de amigos etc.).
+```c#
+    // Incorreto
+    // Conjuntos abertos podem mudar frequentemente, tornando as enumerações inadequadas.
+    public enum OperatingSystem
+    {
+        Windows,
+        MacOS,
+        Linux
+    }
+```
+*   =Evite expor publicamente enumerações com apenas um valor.
+*   =Forneça um valor de zero em enumerações simples.
+```c#
+    public enum Status
+    {
+        None = 0, // Valor zero representando "nenhum estado"
+        Active,
+        Inactive
+    }
+```
 
 ### Tipos Aninhados
 
