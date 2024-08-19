@@ -15,24 +15,24 @@
 *   Não use sublinhados, hifens ou outros caracteres não alfanuméricos.
 *   Não use abreviações ou contrações como parte de nomes de identificador.
 
-#### =Arquivos
+#### Arquivos
 
 *   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
 *   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
 *   Em geral, prefira uma classe principal por arquivo.
 
-#### =Classes, Structs, Interfaces e Genéricos
+#### Classes, Structs, Interfaces e Genéricos
 
 *   Nomes de interfaces começam com `I`, por exemplo, `IInterface`.
 *   Nomeie classes e structs com substantivos ou frases nominais, usando PascalCasing.
 *   Nomeie interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
 *   Considere encerrar o nome de classes derivadas com o nome da classe base.
 
-#### =Métodos
+#### Métodos
 
 *   Nomeie os métodos usando verbos ou frases verbais.
 
-#### =Propriedades
+#### Propriedades
 
 *   Nomeie as propriedades usando um substantivo, uma frase nominal ou um adjetivo.
 *   Não tenha propriedades que correspondam ao nome dos métodos "Get".
@@ -54,7 +54,7 @@
     public Color Color { get; set; }
 ```
 
-#### =Eventos
+#### Eventos
 
 *   Nomeie os eventos com um verbo ou uma frase verbal.
 *   Nomeie os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
@@ -71,7 +71,7 @@
     public event ClosedEventHandler Closed;
 ```
 
-#### =Genéricos e Enumerações
+#### Genéricos e Enumerações
 
 *   Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
 *   Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra. Por exemplo, em uma classe genérica `List<T>`, `T` representa o tipo dos elementos na lista.
@@ -80,13 +80,13 @@
 *   Use um nome de tipo singular para uma enumeração.
 *   Não use um sufixo "Enum" em nomes de tipo enumerado.
 
-### =Organização
+### Organização
 
 *   Modificadores ocorrem na seguinte ordem: `public protected internal private
     new abstract virtual override sealed static readonly extern unsafe volatile
     async`.
 *   Ordem dos membros da classe:
-    *   =Agrupe os membros da classe na seguinte ordem:
+    *   Agrupe os membros da classe na seguinte ordem:
         *   Classes aninhadas, enums, delegates e eventos.
         *   Campos static, cons e readonly.
         *   Campos e propriedades.
