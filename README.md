@@ -118,7 +118,7 @@
 *   =Prefira constantes nomeadas a números mágicos.
 
 ### =Expressões Condicionais
-*   =Prefira a combinação de várias condições relacionadas em um único if quando isso melhora a legibilidade.
+*   =Prefira a combinação de várias condições relacionadas em um único `if` quando isso melhora a legibilidade.
 ```c#
     if (condicao1)
     {
@@ -134,6 +134,8 @@
 ### Classe vs Struct
 
 *   =Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
+*   =Não forneça um construtor sem parâmetros para um struct.
+*   =Não defina tipos mutáveis de valor.
 *   =Evite definir um struct, a menos que o tipo tenha todas as características a seguir:
     * =Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
     * =Tem um tamanho de instância inferior a 16 bytes.
@@ -154,13 +156,6 @@
         }
     }    
 ```
-
-#### Design de Struct
-
-*   Não forneça um construtor sem parâmetros para um struct.
-*   Não defina tipos mutáveis de valor.
-*   Verifique se um estado em que todos os dados da instância estão definidos como zero, falsos ou nulos (conforme apropriado) é válido.
-*   Implemente IEquatable<T> nos tipos de valor.
  
 ### Interface
 
