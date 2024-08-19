@@ -1,5 +1,14 @@
 # C# at CEASB Style Guide
 
+## Diretrizes de Organização
+
+### Arquivos
+
+*   Áres de teste ou sandbox devem ser separadas com subpastas com nome dos respectivos desenvolvedores.
+*   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
+*   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
+*   Em geral, prefira uma classe principal por arquivo.
+
 ## Diretrizes de Formatação
 
 ### Regras de Nomenclatura
@@ -14,12 +23,6 @@
 *   Favoreça a legibilidade em vez da brevidade.
 *   Não use sublinhados, hifens ou outros caracteres não alfanuméricos.
 *   Não use abreviações ou contrações como parte de nomes de identificador.
-
-#### Arquivos
-
-*   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
-*   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
-*   Em geral, prefira uma classe principal por arquivo.
 
 #### Classes, Structs, Interfaces e Genéricos
 
