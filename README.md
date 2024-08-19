@@ -123,22 +123,37 @@
     if (condicao1)
     {
         if (condicao2)
-        {...}
+        { ... }
     }
     
     // Combinação de condições
     if (condicao1 && condicao2)
-    {...}
+    { ... }
 ```
 
 ### Classe vs Struct
 
-*   Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
-*   Evite definir um struct, a menos que o tipo tenha todas as características a seguir:
-    * Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
-    * Tem um tamanho de instância inferior a 16 bytes.
-    * É imutável.
-    * Não precisará ser encaixotado com frequência.
+*   =Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
+*   =Evite definir um struct, a menos que o tipo tenha todas as características a seguir:
+    * =Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
+    * =Tem um tamanho de instância inferior a 16 bytes.
+    * =É imutável.
+    * =Não precisará ser encaixotado com frequência.
+    
+```c#
+    //Point é pequeno, usado em operações rápidas frequentemente e tem apenas um tipo.
+    public struct Point
+    {
+        public int X { get; }
+        public int Y { get; }
+
+        public Point(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+    }    
+```
 
 #### Design de Struct
 
