@@ -277,14 +277,23 @@ Exemplo:
 
 #### Propriedades Indexadas
 
-*   Considere usar indexadores para dar acesso aos dados armazenados em uma matriz interna.
-*   Considere fornecer indexadores em tipos que representam coleções de itens.
-*   Evite usar propriedades indexadas com mais de um parâmetro.
-*   Evite indexadores com tipos de parâmetro que não System.Int32, System.Int64, System.String, System.Object ou uma enumeração.
-*   Use o nome Item para propriedades indexadas, a menos que haja um nome obviamente melhor (por exemplo, confira a propriedade Chars[] em System.String).
-*   Não forneça um indexador e métodos semanticamente equivalentes.
-*   Não forneça mais de uma família de indexadores sobrecarregados em um tipo.
-*   Não use propriedades indexadas não padrão.
+*   =Considere usar indexadores para dar acesso aos dados armazenados em uma matriz interna.
+*   =Se você estiver criando uma classe que representa uma coleção de itens, como uma lista personalizada ou um dicionário.
+*   =Evite usar propriedades indexadas com mais de um parâmetro.
+*   Use o nome `Item` para propriedades indexadas.
+```c#
+    public class MyList
+    {
+        public List<string> Item = new List<string>();
+    
+        // Indexador para acessar itens na lista
+        public string this[int index]
+        {
+            get { return Item[index]; }
+            set { Item[index] = value; }
+        }
+    }
+```
 
 ### Construtores
 
