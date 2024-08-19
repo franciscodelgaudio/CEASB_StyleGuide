@@ -131,7 +131,7 @@
     { ... }
 ```
 
-### Classe vs Struct
+### =Classe vs Struct
 
 *   =Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
 *   =Não forneça um construtor sem parâmetros para um struct.
@@ -157,15 +157,28 @@
     }    
 ```
  
-### Interface
+### =Interface
 
-*   Defina uma interface se você precisar que alguma API comum tenha suporte de um conjunto de tipos que incluem tipos de valor.
-*   Considere definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
-*   Evite o uso de interfaces de marcador (interfaces sem membros).
-*   Se você precisar marcar uma classe como tendo uma característica específica (marcador), no geral, use um atributo personalizado em vez de uma interface.
-*   Forneça pelo menos um tipo que é uma implementação de uma interface.
-*   Forneça pelo menos uma API que consome cada interface que você define (um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface).
-*   Não adicione membros a uma interface que tenha sido enviada anteriormente.
+*   =Considere definir uma interface se você precisar dar suporte à sua funcionalidade em tipos que já herdam de algum outro tipo.
+Exemplo:
+```c#
+    //Se você tem uma classe que já herda de outra classe, mas precisa adicionar funcionalidade adicional, uma interface pode ser a solução.
+    public class Animal =
+        public void Eat() { /* ... */ }
+    }
+    
+    public interface ICanFly
+    {
+        void Fly();
+    }
+    
+    public class Bird : Animal, ICanFly
+    {
+        public void Fly() { /* ... */ }
+    }
+```
+*   =Sempre que você define uma interface, deve haver pelo menos uma classe que a implemente.
+*   =Forneça pelo menos um método que usa a interface como um parâmetro ou uma propriedade tipada como a interface.
 
 ### Enumeração
 
