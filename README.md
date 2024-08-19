@@ -297,12 +297,11 @@ Exemplo:
 
 ### Construtores
 
-*   CONSIDERE fornecer construtores simples, idealmente padrão.
-*   CONSIDERE o uso de um método de fábrica estático em vez de um construtor se a semântica da operação desejada não for mapeada diretamente para a construção de uma nova instância ou se seguir as diretrizes de design do construtor não parecer natural.
-*   USE parâmetros de construtor como atalhos para definir as propriedades principais.
-*   USE o mesmo nome para parâmetros de construtor e uma propriedade se os parâmetros do construtor forem usados para simplesmente definir a propriedade.
-*   FAÇA um trabalho mínimo no construtor.
-*   GERE exceções de construtores de instância, se apropriado.
+*   =Faça construtores simples, idealmente padrão.
+*   =Use parâmetros de construtor como atalhos para definir as propriedades principais.
+*   =Use o mesmo nome para parâmetros de construtor e uma propriedade se os parâmetros do construtor forem usados para simplesmente definir a propriedade.
+*   =Construtores devem ser simples e rápidos, evitando lógica complexa.
+*   =Se um construtor não puder inicializar corretamente uma instância, ele deve lançar uma exceção.
 *   DECLARE explicitamente o construtor público sem parâmetros em classes, se esse construtor for necessário.
 *   EVITE definir explicitamente construtores sem parâmetros em structs.
 *   EVITE chamar membros virtuais em um objeto dentro de seu construtor.
