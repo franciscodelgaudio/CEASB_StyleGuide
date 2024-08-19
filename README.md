@@ -28,44 +28,45 @@
 *   =Nomeie interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
 *   =Considere encerrar o nome de classes derivadas com o nome da classe base.
 
-#### Métodos
+#### =Métodos
 
 *   =Nomeie os métodos usando verbos ou frases verbais.
 
-#### Propriedades
+#### =Propriedades
 
 *   =Nomeie as propriedades usando um substantivo, uma frase nominal ou um adjetivo.
-*   Não tenha propriedades que correspondam ao nome dos métodos "Get".
+*   =Não tenha propriedades que correspondam ao nome dos métodos "Get".
 ```c#
     // Incorreto
     public string TextWriter { get {...} set {...} }
     public string GetTextWriter(int value) { ... }
 ```
-*   Nomeie as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
+*   =Nomeie as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
 ```c#
     // Incorreto
     public List<string> NameList { get; set; }
     // Correto
     public List<string> Names { get; set; }
 ```
-*   Nomeie as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has", mas somente quando isso adicionar valor.
-*   Considere nomear uma propriedade com o mesmo nome de seu tipo.
+*   =Nomeie as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has", mas somente quando isso adicionar valor.
+*   =Considere nomear uma propriedade com o mesmo nome de seu tipo.
 ```c#
     public Color Color { get; set; }
 ```
 
-#### Eventos
+#### =Eventos
 
-*   Nomeie os eventos com um verbo ou uma frase verbal.
-*   Nomeie os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
-*   Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
-*   Nomeie as classes de argumento de evento com o sufixo "EventArgs".
-
-#### Campos
-
-*   Use PascalCasing nos nomes de campos.
-*   Nomeie os campos usando um substantivo, uma frase nominal ou um adjetivo.
-*   Não use um prefixo para nomes de campos.
+*   =Nomeie os eventos com um verbo ou uma frase verbal.
+*   =Nomeie os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
+*   =Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
+*   =Nomeie as classes de argumento de evento com o sufixo "EventArgs".
+```c#
+    public delegate void ClosingEventHandler(object sender, EventArgs e);
+    public delegate void ClosedEventHandler(object sender, EventArgs e);
+    
+    public event ClosingEventHandler Closing;
+    public event ClosedEventHandler Closed;
+```
 
 #### Genéricos e Enumerações
 
