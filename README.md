@@ -71,7 +71,24 @@ Assets
 
 ### Tags vs Layers
 
+*   Use Layers para diferenciar tipos de objetos que precisam de configurações distintas, como física, renderização, ou interações com a câmera.
+*   Use Tags para identificar GameObjects de forma única. Elas são úteis para encontrar e manipular objetos específicos em scripts.
+*   Evite usar muitas tags para não complicar a gestão do projeto. Mantenha as tags simples e descritivas.
+*   Nomeie as Layers de forma clara e descritiva. Exemplo: Player, Enemy, EnvironmentCollision.
+*   Use nomes de tags consistentes e em inglês, mesmo que o projeto seja em outro idioma.
+
 # C# at CEASB Style Guide
+
+## Diretrizes de Documentação
+
+### Comentários
+
+*   Use comentários de uma única linha `//` para explicações breves.
+*   Evite comentários de várias linhas `/* */` para explicações mais longas. Os comentários não são localizados. Em vez disso, explicações mais longas estão no artigo complementar.
+*   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>`.
+*   Comece o texto do comentário com uma letra maiúscula.
+*   Finalize o texto do comentário com um ponto final.
+*   Insira um espaço entre o delimitador de comentário ( //) e o texto do comentário, conforme mostrado no exemplo a seguir.
 
 ## Diretrizes de Formatação
 
