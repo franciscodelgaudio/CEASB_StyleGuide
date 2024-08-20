@@ -102,9 +102,9 @@ Assets
 Exemplos:
 
 ```c#
-// Arquivo: PlayerController.cs
-// Descrição: Controla o movimento e as ações do jogador.
-// Autor: João Silva
+// Arquivo: GameManager.cs
+// Descrição: Gerencia o estado do jogo e a transição entre cenas.
+// Autor: Maria Oliveira
 // Data: 20/08/2024
 
 /// <summary>
@@ -112,9 +112,18 @@ Exemplos:
 /// </summary>
 /// <param name="direction">A direção do movimento.</param>
 /// <returns>Void</returns>
-void MovePlayer(Vector3 direction)
+public void MovePlayer(Vector3 direction)
 {
     // Código do método
+}
+
+private void Update()
+{
+    if (Input.GetKeyDown(KeyCode.P))
+    {
+        // TODO: Implementar funcionalidade de pausa
+        PauseGame();
+    }
 }
 ```
 
