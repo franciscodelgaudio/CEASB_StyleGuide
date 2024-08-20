@@ -62,6 +62,10 @@ Assets
 *   Crie uma subpasta caso ultrapasse 15 arquivos em uma pasta.
 *   Não crie mais de quatro níveis de subpastas. Exemplo: `Assets > Art > Models > Player > Armadura` é aceitável, mas `Assets > Art > Models > Player > Armadura > Defesa` não é.
 
+### Hierarchy
+
+*   Use separadores `------ CATEGORIA ------` para agrupar logicamente os objetos que pertencem à mesma categoria ou funcionalidade.
+
 # C# at CEASB Style Guide
 
 ## Diretrizes de Formatação
