@@ -1,6 +1,6 @@
 # Unity at CEASB Style Guide
 
-## Project
+## Diretrizes de Organização
 
 ### Estrutura de Arquivos
 
@@ -68,6 +68,8 @@ Assets
 *   Use nomes descritivos para indicar a função ou o grupo de objetos que estão abaixo deles. Por exemplo, `------ INIMIGOS ------`.
 *   Use `snake_case` para nomear os objetos da hierarquia.
 *   Use prefabs para manter a consistência e facilitar a reutilização de objetos. Sempre que possível, crie prefabs para objetos que serão usados várias vezes.
+
+### Tags vs Layers
 
 # C# at CEASB Style Guide
 
