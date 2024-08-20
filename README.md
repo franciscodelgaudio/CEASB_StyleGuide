@@ -98,6 +98,9 @@ Assets
 *   Comente para explicar o porquê. não o como. O código bem escrito deve ser autoexplicativo.
 *   Mantenha os comentários curtos e diretos, utilizando uma linguagem clara e precisa.
 *   No início de cada arquivo, inclua um comentário que descreva o propósito do arquivo, o autor e a data de criação.
+*   Use `TODO` para indicar partes do código que precisam de melhorias ou que serão implementadas no futuro.
+*   Use `FIXME` para marcar trechos de código que contêm problemas ou que necessitam de revisão urgente.
+*   Use `NOTE` para destacar informações importantes ou advertências sobre o comportamento do código.
 
 Exemplos:
 
