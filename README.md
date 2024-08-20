@@ -83,12 +83,40 @@ Assets
 
 ### Comentários
 
+#### Formatação
+
 *   Use comentários de uma única linha `//` para explicações breves.
 *   Evite comentários de várias linhas `/* */` para explicações mais longas. Os comentários não são localizados. Em vez disso, explicações mais longas estão no artigo complementar.
 *   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>`.
 *   Comece o texto do comentário com uma letra maiúscula.
 *   Finalize o texto do comentário com um ponto final.
-*   Insira um espaço entre o delimitador de comentário ( //) e o texto do comentário, conforme mostrado no exemplo a seguir.
+*   Insira um espaço entre o delimitador de comentário `//` e o texto do comentário, conforme mostrado no exemplo a seguir.
+
+
+#### Declaração
+
+*   Comente para explicar o porquê. não o como. O código bem escrito deve ser autoexplicativo.
+*   Mantenha os comentários curtos e diretos, utilizando uma linguagem clara e precisa.
+*   No início de cada arquivo, inclua um comentário que descreva o propósito do arquivo, o autor e a data de criação.
+
+Exemplos:
+
+```c#
+// Arquivo: PlayerController.cs
+// Descrição: Controla o movimento e as ações do jogador.
+// Autor: João Silva
+// Data: 20/08/2024
+
+/// <summary>
+/// Move o jogador na direção especificada.
+/// </summary>
+/// <param name="direction">A direção do movimento.</param>
+/// <returns>Void</returns>
+void MovePlayer(Vector3 direction)
+{
+    // Código do método
+}
+```
 
 ## Diretrizes de Formatação
 
