@@ -4,10 +4,61 @@
 
 ### Arquivos
 
+*   Evite pastas extras no nível da raiz. Em geral, armazene seus arquivos de conteúdo na pasta Assets.
 *   Áres de teste ou sandbox devem ser separadas com subpastas com nome dos respectivos desenvolvedores.
 *   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
 *   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
 *   Em geral, prefira uma classe principal por arquivo.
+
+#### Estrutura de Arquivos
+
+```
+Assets
+├── ThirdParty
+│ └── [CompanyName]
+| | └── [Package Name]
+| | | └── [Package Name] 
+│ | | └── Version.txt (Com URL de origem, changelog) 
+├── Art 
+│ ├── Animation
+│ │ ├── AnimationClips 
+│ │ └── Animators
+│ ├── Audio 
+│ │ ├── AudioClips 
+│ │ └── AudioMixers 
+│ ├── Fonts 
+│ ├── Materials 
+│ ├── Models 
+│ ├── Shaders 
+│ ├── Sprites 
+│ └── Textures
+├── Documentation 
+├── Prefabs 
+│ └── MyHeroPrefab (usando MyHero.cs) 
+├── Resources
+├── Scenes
+├── Scripts 
+│ ├── Editor 
+│ │ └── [MeuProjeto] (namespace MeuProjeto) 
+│ │ | └── MyHeroEditor.cs 
+│ ├── Runtime
+│ │ └── [MeuProjeto] (namespace MeuProjeto) 
+│ │ | ├── MyHero.cs 
+│ │ | └── MyHeroSettings.cs 
+│ └── Tests
+| | └── [Desenvolvedor 1]
+| | └── [Desenvolvedor 2]
+└── Settings
+  └── PhysicMaterials
+  └── Presets
+  └── Rendering
+  └── Resources
+  └── UIToolkit
+```
+
+#### Criando Subpastas
+
+*   
 
 ## Diretrizes de Formatação
 
