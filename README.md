@@ -65,6 +65,8 @@ Assets
 ### Hierarchy
 
 *   Use separadores `------ CATEGORIA ------` para agrupar logicamente os objetos que pertencem à mesma categoria ou funcionalidade.
+*   Use nomes descritivos para indicar a função ou o grupo de objetos que estão abaixo deles. Por exemplo, `------ Inimigos ------`.
+*   Use `snake_case` para nomear os objetos da hierarquia.
 
 # C# at CEASB Style Guide
 
