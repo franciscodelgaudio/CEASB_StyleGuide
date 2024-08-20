@@ -12,12 +12,14 @@
 
 #### Estrutura de Arquivos
 
+O esqueleto básico do projeto deve seguir a ordenação a seguir:
+
 ```
 Assets
 ├── ThirdParty
 │ └── [CompanyName]
 | | └── [Package Name]
-| | | └── [Package Name] 
+| | | |── [Package Name] 
 │ | | └── Version.txt (Com URL de origem, changelog) 
 ├── Art 
 │ ├── Animation
@@ -56,9 +58,10 @@ Assets
   └── UIToolkit
 ```
 
-#### Criando Subpastas
+#### Criação de Subpastas
 
-*   
+*   Crie uma subpasta se houver pelo menos 5 arquivos que podem ser agrupados por função, uso, ou contexto específico.
+*   Não crie mais de quatro níveis de subpastas. Exemplo: `Assets > Art > Models > Player > Armadura` é aceitável, mas `Assets > Art > Models > Player > Armadura > Defesa` não é.
 
 ## Diretrizes de Formatação
 
