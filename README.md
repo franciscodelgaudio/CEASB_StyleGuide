@@ -68,8 +68,13 @@ Assets
 
 ### Regras de Nomenclatura
 
+#### Unity
+
+*   
+
 #### Código
 
+*   Prefira configurar variáveis diretamente no Inspetor ao invés de buscar características por código.
 *   Nomes de classes, métodos, enumerações, campos públicos, propriedades públicas, namespaces: `PascalCase`.
 *   Nomes de variáveis locais, parâmetros: `camelCase`.
 *   Nomes de campos e propriedades privadas, protegidas, internas e protegidas internas: `_camelCase`.
