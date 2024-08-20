@@ -1,16 +1,8 @@
-# C# and Unity at CEASB Style Guide
+# Unity at CEASB Style Guide
 
-## Diretrizes de Organização
+## Project
 
-### Arquivos
-
-*   Evite pastas extras no nível da raiz. Em geral, armazene seus arquivos de conteúdo na pasta Assets.
-*   Áres de teste ou sandbox devem ser separadas com subpastas com nome dos respectivos desenvolvedores.
-*   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
-*   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
-*   Em geral, prefira uma classe principal por arquivo.
-
-#### Estrutura de Arquivos
+### Estrutura de Arquivos
 
 O esqueleto básico do projeto deve seguir a ordenação a seguir:
 
@@ -58,19 +50,23 @@ Assets
   └── UIToolkit
 ```
 
-#### Criação de Subpastas
+### Arquivos
+
+*   Evite pastas extras no nível da raiz. Em geral, armazene seus arquivos de conteúdo na pasta Assets.
+*   Áres de teste ou sandbox devem ser separadas com subpastas com nome dos respectivos desenvolvedores.
+*   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
+
+### Criação de Subpastas
 
 *   Crie uma subpasta se houver pelo menos 5 arquivos que podem ser agrupados por função, uso, ou contexto específico.
 *   Crie uma subpasta caso ultrapasse 15 arquivos em uma pasta.
 *   Não crie mais de quatro níveis de subpastas. Exemplo: `Assets > Art > Models > Player > Armadura` é aceitável, mas `Assets > Art > Models > Player > Armadura > Defesa` não é.
 
+# C# at CEASB Style Guide
+
 ## Diretrizes de Formatação
 
 ### Regras de Nomenclatura
-
-#### Unity
-
-*   
 
 #### Código
 
@@ -145,6 +141,8 @@ Assets
 
 ### Organização
 
+*   Onde for possível, o nome do arquivo deve ser o mesmo que o nome da classe principal no arquivo, por exemplo, `MyClass.cs`.
+*   Em geral, prefira uma classe principal por arquivo.
 *   Modificadores ocorrem na seguinte ordem: `public protected internal private
     new abstract virtual override sealed static readonly extern unsafe volatile
     async`.
