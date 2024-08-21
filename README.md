@@ -473,7 +473,8 @@ Exemplo das regras acima:
 ### Eventos
 
 *   Considere usar eventos para permitir que os usuários personalizem o comportamento de uma estrutura sem necessidade de entender o design orientado ao objeto.
-*   Prefira os novos tipos Func<...>, Action<...> ou Expression<...> em vez de delegados personalizados.
+*   Prefira o tipo `UnityEvent` em vez dos novos tipos.
+*   Prefira os novos tipos `Func<...>`, `Action<...>` ou `Expression<...>` em vez de delegados personalizados.
 
 
 ```c#
