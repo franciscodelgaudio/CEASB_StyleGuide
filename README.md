@@ -25,7 +25,7 @@ O esqueleto básico do projeto deve seguir a ordenação a seguir:
 
 ```
 Assets
-├── ThirdParty
+├── 3rdParty
 │ └── [CompanyName]
 | | └── [Package Name]
 | | | |── [Package Name] 
