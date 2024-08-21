@@ -3,7 +3,7 @@
 O Ciclo de Refinamento de Código é um fluxo de trabalho estruturado para garantir a qualidade e a 
 consistência do código em cada etapa do desenvolvimento. Ele é composto pelas seguintes etapas:
 
-*   Codificação Inicial: Nessa fase, os desenvolvedores escrevem o código conforme os
+*   Codificação: Nessa fase, os desenvolvedores escrevem o código conforme os
 requisitos e especificações do projeto, focando na funcionalidade básica e na lógica principal.
 *   Revisão de Estilo: O código passa por uma revisão cuidadosa para assegurar que esteja em
 conformidade com as convenções de estilo e boas práticas estabelecidas no guia de estilo da equipe.
