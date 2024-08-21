@@ -105,7 +105,7 @@ Assets
 *   Faça comentários em português.
 *   Use comentários de uma única linha `//` para explicações breves.
 *   Evite comentários de várias linhas `/* */` para explicações mais longas. Os comentários não são localizados. Em vez disso, explicações mais longas estão no artigo complementar.
-*   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>`.
+*   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>` utilizando apenas uma linha.
 *   Comece o texto do comentário com uma letra maiúscula.
 *   Finalize o texto do comentário com um ponto final.
 *   Insira um espaço entre o delimitador de comentário `//` e o texto do comentário, conforme mostrado no exemplo a seguir.
@@ -115,7 +115,6 @@ Assets
 
 *   Comente para explicar o porquê. não o como. O código bem escrito deve ser autoexplicativo.
 *   Mantenha os comentários curtos e diretos, utilizando uma linguagem clara e precisa.
-*   No início de cada arquivo, inclua um comentário que descreva o propósito do arquivo, o autor e a data de criação.
 *   Use `TODO` para indicar partes do código que precisam de melhorias ou que serão implementadas no futuro.
 *   Use `FIXME` para marcar trechos de código que contêm problemas ou que necessitam de revisão urgente.
 *   Use `NOTE` para destacar informações importantes ou advertências sobre o comportamento do código.
@@ -123,16 +122,8 @@ Assets
 Exemplos:
 
 ```c#
-// Arquivo: GameManager.cs
-// Descrição: Gerencia o estado do jogo e a transição entre cenas.
-// Autor: Maria Oliveira
-// Data: 20/08/2024
-
-/// <summary>
-/// Move o jogador na direção especificada.
-/// </summary>
+/// <summary> Move o jogador na direção especificada. </summary>
 /// <param name="direction">A direção do movimento.</param>
-/// <returns>Void</returns>
 public void MovePlayer(Vector3 direction)
 {
     // Código do método
