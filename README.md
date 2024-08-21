@@ -85,6 +85,7 @@ Assets
 
 #### Formatação
 
+*   Faça comentários em português.
 *   Use comentários de uma única linha `//` para explicações breves.
 *   Evite comentários de várias linhas `/* */` para explicações mais longas. Os comentários não são localizados. Em vez disso, explicações mais longas estão no artigo complementar.
 *   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>`.
@@ -136,6 +137,7 @@ private void Update()
 
 #### Código
 
+*   Todo o código, incluindo nomes de variáveis, classes e métodos, deve ser escrito em inglês.
 *   Prefira configurar variáveis diretamente no Inspetor ao invés de buscar características por código.
 *   Nomes de classes, métodos, enumerações, campos públicos, propriedades públicas, namespaces: `PascalCase`.
 *   Nomes de variáveis locais, parâmetros: `camelCase`.
