@@ -100,18 +100,18 @@ Assets
 
 #### Formatação
 
-*   Faça comentários em português.
 *   Use comentários de uma única linha `//` para explicações breves.
-*   Evite comentários de várias linhas `/* */` para explicações mais longas. Os comentários não são localizados. Em vez disso, explicações mais longas estão no artigo complementar.
-*   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>` utilizando apenas uma linha.
+*   Evite comentários de várias linhas `/* */` para explicações mais longas. 
 *   Comece o texto do comentário com uma letra maiúscula.
 *   Finalize o texto do comentário com um ponto final.
-*   Insira um espaço entre o delimitador de comentário `//` e o texto do comentário, conforme mostrado no exemplo a seguir.
+*   Insira um espaço entre o delimitador de comentário `//` e o texto do comentário.
 
 
 #### Declaração
 
-*   Comente para explicar o porquê. não o como. O código bem escrito deve ser autoexplicativo.
+*   Faça comentários em português.
+*   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>` utilizando apenas uma linha.
+*   Comente para explicar o porquê. não o como.
 *   Mantenha os comentários curtos e diretos, utilizando uma linguagem clara e precisa.
 *   Use `TODO` para indicar partes do código que precisam de melhorias ou que serão implementadas no futuro.
 *   Use `FIXME` para marcar trechos de código que contêm problemas ou que necessitam de revisão urgente.
@@ -149,7 +149,6 @@ private void Update()
 *   Nomes de variáveis locais, parâmetros: `camelCase`.
 *   Nomes de campos e propriedades privadas, protegidas, internas e protegidas internas: `_camelCase`.
 *   Para a escrita de palavras, qualquer coisa sem espaços internos, incluindo siglas, é considerada uma "palavra". Por exemplo, `MyRpc` em vez de `MyRPC`.
-*   Escolha nomes de identificador facilmente legíveis.
 *   Favoreça a legibilidade em vez da brevidade.
 *   Não use sublinhados, hifens ou outros caracteres não alfanuméricos.
 *   Não use abreviações ou contrações como parte de nomes de identificador.
@@ -159,7 +158,6 @@ private void Update()
 *   Nomes de interfaces começam com `I`, por exemplo, `IInterface`.
 *   Nomeie classes e structs com substantivos ou frases nominais, usando PascalCasing.
 *   Nomeie interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
-*   Considere encerrar o nome de classes derivadas com o nome da classe base.
 
 #### Métodos
 
@@ -169,20 +167,25 @@ private void Update()
 
 *   Nomeie as propriedades usando um substantivo, uma frase nominal ou um adjetivo.
 *   Não tenha propriedades que correspondam ao nome dos métodos "Get".
+
 ```c#
     // Incorreto
     public string TextWriter { get {...} set {...} }
     public string GetTextWriter(int value) { ... }
 ```
-*   Nomeie as propriedades de coleção com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
+
+*   Nomeie as propriedades de coleção (Vetor, Lista, etc.) com uma frase no plural que descreva os itens na coleção em vez de usar uma frase no singular seguida por "List" ou "Collection".
+
 ```c#
     // Incorreto
     public List<string> NameList { get; set; }
     // Correto
     public List<string> Names { get; set; }
 ```
-*   Nomeie as propriedades boolianas com uma frase afirmativa (CanSeek em vez de CantSeek). Opcionalmente, você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has", mas somente quando isso adicionar valor.
+*   Nomeie as propriedades booleanas com uma frase afirmativa (CanSeek em vez de CantSeek).
+*   Você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has".
 *   Considere nomear uma propriedade com o mesmo nome de seu tipo.
+
 ```c#
     public Color Color { get; set; }
 ```
