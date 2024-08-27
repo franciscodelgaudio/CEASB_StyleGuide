@@ -151,13 +151,17 @@ private void Update()
 *   Para a escrita de palavras, qualquer coisa sem espaços internos, incluindo siglas, é considerada uma "palavra". Por exemplo, `MyRpc` em vez de `MyRPC`.
 *   Favoreça a legibilidade em vez da brevidade.
 *   Não use sublinhados, hifens ou outros caracteres não alfanuméricos.
-*   Não use abreviações ou contrações como parte de nomes de identificador.
 
 #### Classes, Structs, Interfaces e Genéricos
 
 *   Nomes de interfaces começam com `I`, por exemplo, `IInterface`.
-*   Nomeie classes e structs com substantivos ou frases nominais, usando PascalCasing.
+*   Nomeie classes e structs com substantivos ou frases nominais, usando PascalCasing. Exemplo: `Customer` ou `OrderProcessor`.
 *   Nomeie interfaces com frases adjetivas ou, ocasionalmente, com substantivos ou frases nominais.
+  
+Exemplo:
+
+`IDisposableResource` é uma frase nominal que indica que o recurso pode ser descartado.\
+`IEnumerable` usa uma frase adjetiva que descreve algo que pode ser enumerado.
 
 #### Métodos
 
