@@ -173,8 +173,9 @@ Exemplo:
 *   Não tenha propriedades que correspondam ao nome dos métodos "Get".
 
 ```c#
-    // Incorreto
+    // Correto
     public string TextWriter { get {...} set {...} }
+    // Incorreto
     public string GetTextWriter(int value) { ... }
 ```
 
@@ -190,6 +191,7 @@ Exemplo:
 *   Você também pode prefixar as propriedades boolianas com "Is", "Can" ou "Has".
 *   Considere nomear uma propriedade com o mesmo nome de seu tipo.
 
+Exemplo:
 ```c#
     public Color Color { get; set; }
 ```
@@ -197,7 +199,6 @@ Exemplo:
 #### Eventos
 
 *   Nomeie os eventos com um verbo ou uma frase verbal.
-*   Nomeie os eventos com um conceito de antes e depois, usando os tempos verbais presente e pretérito.
 *   Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
 *   Nomeie as classes de argumento de evento com o sufixo "EventArgs".
 ```c#
@@ -215,8 +216,6 @@ Exemplo:
 
 *   Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
 *   Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra. Por exemplo, em uma classe genérica `List<T>`, `T` representa o tipo dos elementos na lista.
-*   Use nomes de prefixo descritivos de parâmetro de tipo com T. Por exemplo, `TKey` e `TValue` em um dicionário genérico `Dictionary<TKey, TValue>`.
-*   Considere indicar as restrições colocadas em um parâmetro de tipo no nome do parâmetro.
 *   Use um nome de tipo singular para uma enumeração.
 *   Não use um sufixo "Enum" em nomes de tipo enumerado.
 
@@ -275,12 +274,9 @@ Exemplo:
 
 ### Classe vs Struct
 
-*   Considere definir um struct em vez de uma classe se as instâncias do tipo forem pequenas e normalmente de curta duração ou se forem comumente incorporadas em outros objetos.
 *   Não forneça um construtor sem parâmetros para um struct.
-*   Não defina tipos mutáveis de valor.
 *   Evite definir um struct, a menos que o tipo tenha todas as características a seguir:
     * Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
-    * Tem um tamanho de instância inferior a 16 bytes.
     * É imutável.
     * Não precisará ser encaixotado com frequência.
     
@@ -338,7 +334,6 @@ Exemplo:
         Linux
     }
 ```
-*   Evite expor publicamente enumerações com apenas um valor.
 *   Forneça um valor de zero em enumerações simples.
 ```c#
     public enum Status
@@ -393,14 +388,10 @@ Exemplo:
 
     *   Quando o tipo é óbvio - e.g. `var apple = new Apple();`, ou `var
         request = Factory.Create<HttpRequest>();`
-    *   Para variáveis transitórias que são passadas diretamente para outros métodos -
-        e.g. `var item = GetItem(); ProcessItem(item);`
 
 *   Desencorajado:
 
     *   Ao trabalhar com tipos básicos - e.g. `var success = true;`
-    *   Ao trabalhar com tipos numéricos incorporados resolvidos pelo compilador - e.g. `var
-        number = 12 * ReturnsFloat();`
     *   Quando os usuários se beneficiariam claramente ao conhecer o tipo - e.g. `var
         listOfItems = GetList();`
 
@@ -416,26 +407,6 @@ Exemplo:
 
 *   Crie propriedades somente `get` se o chamador não puder alterar o valor da propriedade.
 *   Não forneça propriedades somente `set` ou propriedades com um setter que tenha acessibilidade mais ampla do que o getter.
-
-#### Propriedades Indexadas
-
-*   Considere usar indexadores para dar acesso aos dados armazenados em uma matriz interna.
-*   Se você estiver criando uma classe que representa uma coleção de itens, como uma lista personalizada ou um dicionário.
-*   Evite usar propriedades indexadas com mais de um parâmetro.
-*   Use o nome `Item` para propriedades indexadas.
-```c#
-    public class MyList
-    {
-        public List<string> Item = new List<string>();
-    
-        // Indexador para acessar itens na lista
-        public string this[int index]
-        {
-            get { return Item[index]; }
-            set { Item[index] = value; }
-        }
-    }
-```
 
 ### Construtores
 
@@ -463,14 +434,12 @@ Exemplo das regras acima:
 
 #### Casting
 
-*   Não forneça um casting se essa conversão não for claramente esperada pelos usuários finais.
 *   Não forneça um operador de conversão implícita se a conversão potencialmente tiver perda.
 
 ### Eventos
 
-*   Considere usar eventos para permitir que os usuários personalizem o comportamento de uma estrutura sem necessidade de entender o design orientado ao objeto.
 *   Prefira o tipo `UnityEvent` em vez dos novos tipos.
-*   Prefira os novos tipos `Func<...>`, `Action<...>` ou `Expression<...>` em vez de delegados personalizados.
+*   Prefira os novos tipos `Func<...>` ou `Action<...>`` em vez de delegados personalizados.
 
 
 ```c#
