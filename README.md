@@ -1,20 +1,3 @@
-# Fluxo de Trabalho
-
-O Ciclo de Refinamento de Código é um fluxo de trabalho estruturado para garantir a qualidade e a 
-consistência do código em cada etapa do desenvolvimento. Ele é composto pelas seguintes etapas:
-
-*   Codificação: Nessa fase, os desenvolvedores escrevem o código conforme os
-requisitos e especificações do projeto, focando na funcionalidade básica e na lógica principal.
-*   Revisão de Estilo: O código passa por uma revisão cuidadosa para assegurar que esteja em
-conformidade com as convenções de estilo e boas práticas estabelecidas no guia de estilo da equipe.
-*   Revisão Lógica: Após a revisão de estilo, o código é avaliado quanto à sua lógica e estrutura modular.
-
-<div align="center">
-<img src="https://github.com/user-attachments/assets/bcca3fbe-b42c-45da-b626-c8addf1ec087" alt="Descrição da imagem" width="500" height="350">
-</div>
-
-Esse ciclo iterativo permite uma abordagem sistemática para o desenvolvimento de software, garantindo que o código entregue seja de qualidade e esteja em conformidade com os padrões estabelecidos.
-
 # Unity at CEASB Style Guide
 
 ## Diretrizes de Organização
