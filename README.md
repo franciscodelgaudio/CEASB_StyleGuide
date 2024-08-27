@@ -69,7 +69,6 @@ Assets
 
 ### Arquivos
 
-*   Evite pastas extras no nível da raiz. Em geral, armazene seus arquivos de conteúdo na pasta Assets.
 *   Áres de teste ou sandbox devem ser separadas com subpastas com nome dos respectivos desenvolvedores.
 *   Nomes de arquivos e diretórios são em `PascalCase`, por exemplo, `MyFile.cs`.
 
