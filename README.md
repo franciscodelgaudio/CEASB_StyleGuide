@@ -90,7 +90,7 @@ Assets
 *   Use Tags para identificar GameObjects de forma única. Elas são úteis para encontrar e manipular objetos específicos em scripts.
 *   Evite usar muitas tags para não complicar a gestão do projeto. Mantenha as tags simples e descritivas.
 *   Nomeie as Layers de forma clara e descritiva. Exemplo: Player, Enemy, EnvironmentCollision.
-*   Use nomes de tags consistentes e em inglês, mesmo que o projeto seja em outro idioma.
+*   Use nomes de tags e layers em inglês.
 
 # C# at CEASB Style Guide
 
