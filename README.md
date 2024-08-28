@@ -422,7 +422,7 @@ Exemplo das regras acima:
 ### Eventos
 
 *   Prefira o tipo `UnityEvent` em vez dos novos tipos.
-*   Prefira os novos tipos `Func<...>` ou `Action<...>`` em vez de delegados personalizados.
+*   Prefira os novos tipos `Func<...>` ou `Action<...>` em vez de delegados personalizados.
 
 
 ```c#
