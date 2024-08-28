@@ -229,8 +229,23 @@ Exemplo:
 ### Constantes
 
 *   Variáveis e campos que podem ser const devem sempre ser const.
-*   Se const não for possível, readonly pode ser uma alternativa adequada.
 *   Prefira constantes nomeadas a números mágicos.
+
+```c#
+  // Correto
+  const int MaxRetries = 5;
+  
+  for (int i = 0; i < MaxRetries; i++)
+  {
+      // Lógica de repetição
+  }
+  
+  // Incorreto
+  for (int i = 0; i < 5; i++)
+  {
+      // Lógica de repetição
+  }
+```
 
 ### Expressões Condicionais
 *   Prefira a combinação de várias condições relacionadas em um único `if` quando isso melhora a legibilidade.
