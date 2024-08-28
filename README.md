@@ -220,7 +220,8 @@ Exemplo:
 *   Use o estilo "Allman" para chaves: abra e feche sua própria nova linha. As chaves se alinham com o nível de recuo atual.
 *   Limite de colunas: 80.
 *   Chaves usadas mesmo quando opcionais.
-*   Sem espaço após `if`/`for`/`while`, etc., e após vírgulas.
+*   Sem espaço após `if`/`for`/`while`, etc.
+*   Espaço após vírgulas.
 *   Nenhum espaço após um parêntese de abertura ou antes de um parêntese de fechamento.
 *   As quebras de linha devem ocorrer após os operadores lógicos, se necessário.
 
