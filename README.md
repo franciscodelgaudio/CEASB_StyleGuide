@@ -103,7 +103,7 @@ Exemplos:
 
 ```c#
 /// <summary> Move o jogador na direção especificada. </summary>
-/// <param name="direction">A direção do movimento.</param>
+/// <param name="direction">A direção do movimento. </param>
 public void MovePlayer(Vector3 direction)
 {
     // Código do método
