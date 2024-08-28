@@ -267,7 +267,6 @@ Exemplo:
 *   Evite definir um struct, a menos que o tipo tenha todas as características a seguir:
     * Representa logicamente um único valor, semelhante aos tipos primitivos (int, double etc.).
     * É imutável.
-    * Não precisará ser encaixotado com frequência.
     
 ```c#
     // Point é pequeno, usado em operações rápidas frequentemente e tem apenas um tipo.
