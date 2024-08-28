@@ -186,8 +186,8 @@ Exemplo:
     public delegate void ClosingEventHandler(object sender, ClosingEventArgs e);
     public delegate void ClosedEventHandler(object sender, ClosedEventArgs e);
     
-    public Action<> ClosingEventHandler;
-    public UnityEvent ClosedEventHandler;
+    public Action<int> ClosingEventHandler;
+    public UnityEvent<int> ClosedEventHandler;
 ```
 
 #### Genéricos e Enumerações
