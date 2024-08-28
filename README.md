@@ -363,11 +363,6 @@ Exemplo:
 *   Prefira arrays quando o tamanho do contêiner é fixo e conhecido no momento da construção.
 *   Prefira arrays para arrays multidimensionais.
 
-### Chamando delegates
-
-*   Ao chamar um delegado, use `Invoke()` e o operador condicional nulo - por exemplo,
-    `SomeDelegate?.Invoke()`.
-
 ### A Palavra-Chave `var`
 
 *   O uso de `var` é encorajado se ajudar na legibilidade ao evitar nomes de tipos que
