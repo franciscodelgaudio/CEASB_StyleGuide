@@ -181,11 +181,7 @@ Exemplo:
 #### Eventos
 
 *   Nomeie os eventos com um verbo ou uma frase verbal com o sufixo "EventHandler".
-*   Nomeie as classes de argumento de evento com o sufixo "EventArgs".
 ```c#
-    public delegate void ClosingEventHandler(object sender, ClosingEventArgs e);
-    public delegate void ClosedEventHandler(object sender, ClosedEventArgs e);
-    
     public Action<int> ClosingEventHandler;
     public UnityEvent<int> ClosedEventHandler;
 ```
