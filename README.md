@@ -188,7 +188,6 @@ Exemplo:
 
 #### Genéricos e Enumerações
 
-*   Nomeie parâmetros de tipo genérico com nomes descritivos, a menos que um nome de uma única letra seja autoexplicativo e um nome descritivo não agregue valor.
 *   Considere usar T como o nome do parâmetro de tipo em tipos com parâmetro de tipo de uma letra. Por exemplo, em uma classe genérica `List<T>`, `T` representa o tipo dos elementos na lista.
 *   Use um nome de tipo singular para uma enumeração.
 *   Não use um sufixo "Enum" em nomes de tipo enumerado.
