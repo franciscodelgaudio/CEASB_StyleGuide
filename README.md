@@ -322,7 +322,7 @@ Exemplo:
         Linux
     }
 ```
-*   Forneça um valor de zero em enumerações simples.
+*   Forneça um valor de zero em enumerações.
 ```c#
     public enum Status
     {
