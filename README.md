@@ -94,7 +94,6 @@ Assets
 
 *   Faça comentários em português.
 *   Para descrever métodos, classes, campos e todos os membros públicos, use `<summary>` utilizando apenas uma linha.
-*   Comente para explicar o porquê. não o como.
 *   Mantenha os comentários curtos e diretos, utilizando uma linguagem clara e precisa.
 *   Use `TODO` para indicar partes do código que precisam de melhorias ou que serão implementadas no futuro.
 *   Use `FIXME` para marcar trechos de código que contêm problemas ou que necessitam de revisão urgente.
