@@ -59,7 +59,7 @@ Assets
 
 *   Crie uma subpasta se houver pelo menos 5 arquivos que podem ser agrupados por função, uso, ou contexto específico.
 *   Crie uma subpasta caso ultrapasse 15 arquivos em uma pasta.
-*   Não crie mais de quatro níveis de subpastas. Exemplo: `Assets > Art > Models > Player > Armadura` é aceitável, mas `Assets > Art > Models > Player > Armadura > Defesa` não é.
+*   Não crie mais de cinco níveis de subpastas. Exemplo: `Assets > Art > Models > Player > Armadura` é aceitável, mas `Assets > Art > Models > Player > Armadura > Defesa` não é.
 
 ### Hierarchy
 
