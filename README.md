@@ -180,18 +180,14 @@ Exemplo:
 
 #### Eventos
 
-*   Nomeie os eventos com um verbo ou uma frase verbal.
-*   Nomeie os manipuladores de eventos (delegados usados como tipos de eventos) com o sufixo "EventHandler".
+*   Nomeie os eventos com um verbo ou uma frase verbal com o sufixo "EventHandler".
 *   Nomeie as classes de argumento de evento com o sufixo "EventArgs".
 ```c#
-    public ClosingEventArgs() => {};
-    public ClosedEventArgs() => {};
-
     public delegate void ClosingEventHandler(object sender, ClosingEventArgs e);
     public delegate void ClosedEventHandler(object sender, ClosedEventArgs e);
     
-    public event ClosingEventHandler Closing;
-    public event ClosedEventHandler Closed;
+    public Action<> ClosingEventHandler;
+    public UnityEvent ClosedEventHandler;
 ```
 
 #### Genéricos e Enumerações
