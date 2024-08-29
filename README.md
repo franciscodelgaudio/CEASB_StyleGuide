@@ -435,3 +435,30 @@ Exemplo das regras acima:
     // Uso
     ExecuteAction(x => Console.WriteLine(x * 2));  // Imprime 84
 ```
+
+### Exceções
+
+*   Exceções devem ser usando em duas ocasiões:
+    *   Para tratar erros inesperados ou condições excepcionais que não podem ser previstas.
+    *   Quando a recuperação do erro é necessária e o fluxo normal do programa não pode continuar sem tratamento.
+
+*   Não retorne códigos de erro. Exceções são o principal meio de relatar erros em estruturas.
+*   Relate relata falhas de execução gerando exceções.
+*   Não use exceções para o fluxo normal de controle, se possível.
+*   CONSIDERE usar métodos do construtor de exceções.
+
+``` c#
+// Evite isso
+try {
+    // Código que pode lançar uma exceção
+} catch (NullReferenceException) {
+    // Tratamento da exceção
+}
+
+// Prefira isso
+if (obj != null) {
+    // Código seguro
+} else {
+    // Tratamento do caso nulo
+}
+```
